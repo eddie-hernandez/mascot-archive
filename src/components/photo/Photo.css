@@ -1,0 +1,13 @@
+.mascot-photo {
+  width: 15vh;
+  height: 15vh;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+  position: absolute;
+}
+
+.mascot-photo:hover {
+  border-radius: 120px;
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
