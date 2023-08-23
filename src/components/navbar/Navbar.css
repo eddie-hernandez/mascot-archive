@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10vh;
+}
+
+.navbar-link {
+  text-decoration: none;
+}
+
+.link-text:hover {
+  color: rgb(0, 0, 255);
+}
+
+.navbar-link:visited {
+  color: black;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1vh;
+}
+
+.active-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #20E700;
+  border-radius: 50px;
+  display: none;
+}
+
+.active-link .active-dot {
+  display: block;
+}

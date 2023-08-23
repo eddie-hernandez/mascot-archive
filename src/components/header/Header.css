@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+.blank {
+  flex-grow: 0.25;
+}
+
+.logo {
+  font-family: 'Roc Grotesk', sans-serif;
+  text-decoration: none;
+}
+
+.logo:visited {
+  color: black;
+}
+
+.logo-text {
+  font-family: 'Roc Grotesk', sans-serif;
+  color: black; /* Adjust the color if needed */
+  margin: 0; /* Remove default margin to ensure text is aligned properly */
+  display: inline-block;
+}
+
+.logo-subtext {
+  display: block;
+  margin-top: -0.6em; /* fine-tunes the line spacing */
+}

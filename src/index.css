@@ -1,13 +1,31 @@
+@font-face {
+  font-family: 'Roc Grotesk';
+  src: url('./fonts/rocgrotesk-black.otf') format('opentype');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F2EEE6;
+  text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+}
+
+h1 {
+  font-size: 8vh;
+}
+
+p {
+  font-size: 3vh;
 }
