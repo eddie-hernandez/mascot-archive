@@ -10,6 +10,7 @@ import Food from './pages/food/Food.js'
 import Hat from './pages/hat/Hat.js'
 import Random from './pages/random/Random.js'
 import Home from './pages/home/Home'
+import Submit from './pages/submit/Submit'
 
 // importing photos (HARD CODED, REMOVE WHEN SERVER IS BUILT)
 import image1 from './assets/mascots/30D6B739-4EBE-4A06-B97B-EA9E070FEE31.jpg'
@@ -52,6 +53,7 @@ export default function App() {
         <Route path='/food' element={<Food />} />
         <Route path='/hats' element={<Hat />} />
         <Route path='/random' element={<Random />} />
+        <Route path='/submit' element={<Submit />} />
         <Route path='/*' element={<Navigate to='/' />} />
       </Routes>
     </div>

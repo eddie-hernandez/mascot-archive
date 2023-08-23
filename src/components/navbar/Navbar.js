@@ -49,6 +49,17 @@ export default function Navbar() {
           <div className="active-dot" />
         </div>
       </NavLink>
+      <NavLink
+        to="/submit"
+        className={({ isActive }) =>
+          isActive ? 'active-link navbar-link' : 'navbar-link'
+        }
+      >
+        <div className="link-container">
+          <p className="link-text">submit</p>
+          <div className="active-dot" />
+        </div>
+      </NavLink>
     </nav>
   )
 }

@@ -60,60 +60,44 @@ export default function Home() {
     image26,
   ]
 
-  // Shuffle the images array
+  // shuffling the images array
   const shuffledImages = [...images].sort(() => Math.random() - 0.5)
 
-  const [imagePositions, setImagePositions] = useState([])
+  const imageWidth = 150; // setting image width
+  const imageHeight = 150; // setting image height
 
-  const gridWidth = 100
-  const gridHeight = 100
-  const cellSize = 25
+  // calculating the maximum positions for the images based on the container size
+  const maxX = window.innerWidth - imageWidth;
+  const maxY = window.innerHeight - imageHeight;
 
-  const cellsPerRow = Math.floor(gridWidth / cellSize)
-  const totalCells =
-    Math.floor(gridWidth / cellSize) * Math.floor(gridHeight / cellSize)
+  const margin = 20; // Adjust this value to control the spacing between images
 
-  useEffect(() => {
-    const positions = []
-    const occupiedCells = new Set()
-
-    images.forEach((image, index) => {
-      let attempts = 0
-
-      while (attempts < totalCells) {
-        const randomCell = Math.floor(Math.random() * totalCells)
-
-        if (!occupiedCells.has(randomCell)) {
-          const row = Math.floor(randomCell / cellsPerRow)
-          const col = randomCell % cellsPerRow
-
-          const left = `${col * cellSize}vw`
-          const top = `${row * cellSize}vh`
-
-          const xOffset = Math.random() * cellSize * 0.5
-          const yOffset = Math.random() * cellSize * 0.5
-
-          positions[index] = {
-            top: `calc(${top} + ${yOffset}vh)`,
-            left: `calc(${left} + ${xOffset}vw)`,
-          }
-
-          occupiedCells.add(randomCell)
-          break
-        }
-
-        attempts++
-      }
-    })
-
-    setImagePositions(positions)
-  }, [])
+  const placedImages = [];
 
   return (
     <div className="home-container">
-      {shuffledImages.map((image, index) => (
-        <Photo key={index} image={image} style={imagePositions[index]} />
-      ))}
+      {shuffledImages.map((image, index) => {
+        let newRandomX, newRandomY;
+        do {
+          newRandomX = Math.random() * (maxX - imageWidth - margin) + margin;
+          newRandomY = Math.random() * (maxY - imageHeight - margin) + margin;
+        } while (
+          placedImages.some(
+            ({ x, y }) =>
+              Math.abs(newRandomX - x) < imageWidth &&
+              Math.abs(newRandomY - y) < imageHeight
+          )
+        );
+
+        placedImages.push({ x: newRandomX, y: newRandomY });
+
+        const imageStyle = {
+          left: `${newRandomX}px`,
+          top: `${newRandomY}px`,
+        };
+
+        return <Photo key={index} image={image} alt={`Image ${index}`} style={imageStyle} />;
+      })}
     </div>
   )
 }
