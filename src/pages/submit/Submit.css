@@ -1,3 +1,35 @@
+.photo-upload-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-upload-container label {
+  display: block; /* Make label a block element */
+  margin-bottom: 8px; /* Add some spacing below */
+}
+
+/* Hide the default input appearance */
+.photo-upload-container input[type="file"] {
+  display: none;
+}
+
+/* Style the custom button */
+.photo-upload-container label::before {
+  content: "CHOOSE FILE"; /* Label content */
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.preview-image {
+  width: 300px;
+  max-height: 600px;
+}
+
 .submit-form-container {
   display: flex;
   flex-direction: column;
@@ -51,6 +83,6 @@
   cursor: pointer;
 }
 
-.category-selector:checked {
-  color: #20E700;
+.active-selector {
+  background-color: #20E700;
 }

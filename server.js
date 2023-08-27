@@ -13,9 +13,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }));
 
+// middleware that adds the admin object from a JWT to req.admin
+app.use(require('./config/verifyToken'))
+
 // importing submission routes
-const submissionRoutes = require('./server/routes/submissions');
-app.use('/photoupload', submissionRoutes)
+app.use('/api/submit', require('./server/routes/submissions'))
+app.use('/api/admin', require('./server/routes/admins'))
+
+// Protect the api routes below from anon users
+const ensureLoggedIn = require('./config/ensureLoggedIn')
 
 const port = process.env.PORT || 3001
 

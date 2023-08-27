@@ -2,7 +2,10 @@ const mongoose = require('mongoose')
 
 mongoose.set('strictQuery', false)
 
-mongoose.connect(process.env.REACT_APP_DATABASE_URL)
+mongoose.connect(process.env.REACT_APP_DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 
 const db = mongoose.connection
 

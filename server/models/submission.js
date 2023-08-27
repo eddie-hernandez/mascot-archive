@@ -7,11 +7,23 @@ const submissionSchema = new Schema(
       type: String,
       required: true,
     },
-    description: {
+    category: {
+      type: String,
+      required: true,
+    },
+    locationDescription: {
+      type: String,
+      required: true,
+    },
+    comments: {
       type: String,
       required: true,
     },
     approved: {
+      type: Boolean,
+      default: false,
+    },
+    denied: {
       type: Boolean,
       default: false,
     }
