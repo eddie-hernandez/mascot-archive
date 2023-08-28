@@ -14,14 +14,15 @@ app.use(express.json());
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }));
 
 // middleware that adds the admin object from a JWT to req.admin
-app.use(require('./config/verifyToken'))
+app.use(require('./server/config/verifyToken'))
 
 // importing submission routes
 app.use('/api/submit', require('./server/routes/submissions'))
 app.use('/api/admin', require('./server/routes/admins'))
+app.use('/api/mascots', require('./server/routes/mascots'))
 
 // Protect the api routes below from anon users
-const ensureLoggedIn = require('./config/ensureLoggedIn')
+const ensureLoggedIn = require('./server/config/ensureLoggedIn')
 
 const port = process.env.PORT || 3001
 

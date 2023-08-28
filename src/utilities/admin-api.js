@@ -1,14 +1,9 @@
 import sendRequest from './send-request'
 const BASE_URL = '/api/admin'
 
-// fetch pending submissions
-export function fetchPendingSubs() {
-  return sendRequest(`${BASE_URL}/submissions/pending`);
-}
-
-// update submission status
-export function sortSubs(submissionId, status) {
-  return sendRequest(`${BASE_URL}/submissions/${submissionId}`, 'POST', status);
+// check that user is logged in with token
+export function verifyToken() {
+  return sendRequest(`${BASE_URL}/verify-token`)
 }
 
 // admin sign up
@@ -21,7 +16,12 @@ export function login(credentials) {
   return sendRequest(BASE_URL + '/login', 'POST', credentials)
 }
 
-// check that user is logged in with token
-export function verifyToken() {
-  return sendRequest(`${BASE_URL}/verify-token`)
+// fetch pending submissions
+export function fetchPendingSubs() {
+  return sendRequest(`${BASE_URL}/submissions/pending`);
+}
+
+// update submission status
+export function sortSubs(submissionId, status) {
+  return sendRequest(`${BASE_URL}/submissions/${submissionId}`, 'POST', status);
 }

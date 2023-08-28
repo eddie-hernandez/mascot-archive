@@ -5,7 +5,7 @@ export default function Photo({ image, style }) {
   return (
     <img
       className="mascot-photo"
-      src={image}
+      src={image.imagePath}
       alt=''
       style={style}
     />

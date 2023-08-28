@@ -8,7 +8,7 @@ function createJWT(admin) {
   return jwt.sign(
     // data payload
     { admin },
-    process.env.SECRET,
+    process.env.REACT_APP_JWT_SECRET,
     { expiresIn: '24h' }
   )
 }
@@ -19,7 +19,7 @@ function verifyToken(req, res) {
 
 async function create(req, res) {
   try {
-    // Add the user to the db
+    // Add the admin to the db
     const adminExist = await Admin.findOne({
       username: req.body.username,
     }).exec()
@@ -38,16 +38,17 @@ async function create(req, res) {
   }
 }
 
-async function login(req, res) {
+async function login(req, res, next) {
   try {
-    // Find the admin by their email address
+    // Find the admin by their username
     const admin = await Admin.findOne({ username: req.body.username })
     if (!admin) throw new Error()
     // Check if the password matches
     const match = await bcrypt.compare(req.body.password, admin.password)
     if (!match) throw new Error()
     res.json(createJWT(admin))
-  } catch {
+  } catch (error) {
+    next(error)
     res.status(400).json('Bad Credentials')
   }
 }

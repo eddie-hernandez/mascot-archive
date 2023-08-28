@@ -1,17 +1,9 @@
 import React from 'react'
-import { Route, Navigate } from 'react-router-dom'
+import { Outlet, Navigate } from 'react-router-dom' // Import Routes
+import { useSelector } from 'react-redux'
 
-export function PrivateRoute({ element: Element, authenticated, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      element={
-        authenticated ? (
-          <Element />
-        ) : (
-          <Navigate to="/admin/login" state={{ from: rest.location }} />
-        )
-      }
-    />
-  )
+export default function PrivateRoute() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
+
+  return isAuthenticated ? <Outlet /> : <Navigate to="/admin/login" />
 }

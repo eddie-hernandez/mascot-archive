@@ -1,8 +1,13 @@
+import { useState } from 'react'
 import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { PrivateRoute } from '../components/PrivateRoute'
+
+// importing services
+import { getAdmin } from './utilities/admin-service'
+// import wakeServer from '../../utilities/wake-service'
 
 // importing components
+import PrivateRoute from './components/privateRoute'
 import Header from './components/header/Header'
 
 // importing pages
@@ -14,33 +19,35 @@ import Home from './pages/home/Home'
 import Submit from './pages/submit/Submit'
 import AdminDashboard from './pages/admin/adminDashboard/adminDashboard'
 import AdminLogin from './pages/admin/adminLogin/adminLogin'
+import MascotBio from './components/mascotBio/mascotBio.js'
 
 export default function App() {
-  const isAuthenticated = false
+  const [admin, setAdmin] = useState(getAdmin())
+  // useEffect(() => {
+  //   wakeServer()
+  // })
 
   return (
-      <div className="App">
-        <Header />
-        <Routes>
-          {/* Establishing routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/animal" element={<Animal />} />
-          <Route path="/food" element={<Food />} />
-          <Route path="/hats" element={<Hat />} />
-          <Route path="/random" element={<Random />} />
-          <Route path="/submit" element={<Submit />} />
-          <PrivateRoute
-            path="/admin/dashboard"
-            element={<AdminDashboard />}
-            authenticated={isAuthenticated}
-          />
-          <PrivateRoute
-            path="/admin/login"
-            element={<AdminLogin />}
-            authenticated={!isAuthenticated}
-          />
-          <Route path="/*" element={<Navigate to="/" />} />
-        </Routes>
-      </div>
+    <div className="App">
+      <Header />
+      <Routes>
+        {/* Establishing routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="/mascot/:id" element={<MascotBio />} />
+        <Route path="/animal" element={<Animal />} />
+        <Route path="/food" element={<Food />} />
+        <Route path="/hats" element={<Hat />} />
+        <Route path="/random" element={<Random />} />
+        <Route path="/submit" element={<Submit />} />
+        <Route element={<PrivateRoute />}>
+          <Route element={<AdminDashboard setAdmin={setAdmin} />} path='/admin/dashboard' exact />
+        </Route>
+        <Route
+          path="/admin/login"
+          element={<AdminLogin setAdmin={setAdmin} />}
+        />
+        <Route path="/*" element={<Navigate to="/" />} />
+      </Routes>
+    </div>
   )
 }

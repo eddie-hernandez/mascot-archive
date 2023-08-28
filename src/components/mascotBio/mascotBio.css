@@ -1,0 +1,25 @@
+.mascot-bio-container {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 15vw;
+  column-gap: 5vw;
+}
+
+.mascot-bio-photo {
+  width: 25vw;
+  max-height: 60vh;
+}
+
+.mascot-bio {
+display: flex;
+flex-direction: column;
+row-gap: 5vh;
+text-align: left;
+}
+
+.mascot-bio-group {
+display: flex;
+flex-direction: column;
+row-gap: 2vh;
+}

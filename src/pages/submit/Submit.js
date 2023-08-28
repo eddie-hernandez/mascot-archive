@@ -78,7 +78,7 @@ export default function Submit() {
             <img src={previewImage} alt="Preview" className="preview-image" />
           )}
 
-          {previewImage && <PhotoCrop previewImage={previewImage} />}
+          {/* {previewImage && <PhotoCrop previewImage={previewImage} />} */}
         </div>
         <div className="category-container">
           <div className="category-container">

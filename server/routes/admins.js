@@ -5,7 +5,7 @@ const ensureLoggedIn = require('../config/ensureLoggedIn')
 
 
 // make sure admin has token!
-// GET /api/users/check-token
+// GET /api/admin/verify-token
 router.get('/verify-token', ensureLoggedIn, adminCtrlr.verifyToken)
 
 // wake server!
@@ -13,9 +13,11 @@ router.put('/wake', (req, res, next) => {
   res.sendStatus(204)
 })
 
+// POST /api/admin
+router.post('/', adminCtrlr.create)
+
 // POST /api/admin/login
 router.post('/login', adminCtrlr.login)
-
 
 // fetch pending submissions
 // GET /api/admin/submissions/pending

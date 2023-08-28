@@ -26,12 +26,12 @@
 
 // // Create and verify JWT tokens
 // passport.serializeUser((user, done) => {
-//   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+//   const token = jwt.sign({ id: user._id }, process.env.REACT_APP_JWT_SECRET);
 //   done(null, token);
 // });
 
 // passport.deserializeUser((token, done) => {
-//   jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
+//   jwt.verify(token, process.env.REACT_APP_JWT_SECRET, async (err, decoded) => {
 //     if (err) {
 //       return done(err);
 //     }

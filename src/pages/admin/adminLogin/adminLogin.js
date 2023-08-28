@@ -1,22 +1,32 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import { login } from '../../utilities/admin-services'
+import { useNavigate } from 'react-router-dom'
+import * as adminService from '../../../utilities/admin-service'
+import { useDispatch } from 'react-redux'
+import { login } from '../../../features/authSlice'
 
-export default function AdminLogin() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+export default function AdminLogin({ setAdmin }) {
+  const [credentials, setCredentials] = useState({
+    username: '',
+    password: '',
+  })
   const [error, setError] = useState('')
 
-  const history = useHistory()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  function handleChange(event) {
+    setCredentials({ ...credentials, [event.target.name]: event.target.value })
+    setError('')
+  }
 
   async function handleSubmit(event) {
     event.preventDefault()
 
     try {
-      const admin = await login({ username, password })
-      if (admin) {
-        history.push('/admin/dashboard')
-      }
+      const admin = await adminService.login(credentials)
+      setAdmin(admin)
+      dispatch(login())
+      navigate('/admin/dashboard')
     } catch (error) {
       setError('Invalid credentials')
     }
@@ -28,15 +38,19 @@ export default function AdminLogin() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
+          name="username"
           placeholder="Username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
+          value={credentials.username}
+          onChange={handleChange}
+          required
         />
         <input
           type="password"
+          name="password"
           placeholder="Password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
+          value={credentials.password}
+          onChange={handleChange}
+          required
         />
         <button type="submit">Login</button>
       </form>
