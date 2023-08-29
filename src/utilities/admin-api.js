@@ -18,8 +18,19 @@ export function login(credentials) {
 
 // fetch pending submissions
 export function fetchPendingSubs() {
-  return sendRequest(`${BASE_URL}/submissions/pending`);
+  return sendRequest(`${BASE_URL}/submissions/pending`, 'GET');
 }
+
+// fetch approved submissions
+export function fetchApprovedSubs() {
+  return sendRequest(`${BASE_URL}/submissions/approved`, 'GET');
+}
+
+// fetch denied submissions
+export function fetchDeniedSubs() {
+  return sendRequest(`${BASE_URL}/submissions/denied`, 'GET');
+}
+
 
 // update submission status
 export function sortSubs(submissionId, status) {

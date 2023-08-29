@@ -14,8 +14,6 @@ export default async function sendRequest(url, method = 'GET', data) {
     }
   }
 
-  console.log(data)
-
   const res = await fetch(url, options);
 
   if (res.ok) {

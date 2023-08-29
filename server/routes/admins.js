@@ -22,6 +22,10 @@ router.post('/login', adminCtrlr.login)
 // fetch pending submissions
 // GET /api/admin/submissions/pending
 router.get('/submissions/pending', adminCtrlr.fetchPendingSubs)
+// GET /api/admin/submissions/approved
+router.get('/submissions/approved', adminCtrlr.fetchApprovedSubs)
+// GET /api/admin/submissions/denied
+router.get('/submissions/denied', adminCtrlr.fetchDeniedSubs)
 
 // update submission status (approve or deny)
 // POST /api/admin/submissions/:id

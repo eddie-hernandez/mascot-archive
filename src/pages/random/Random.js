@@ -1,8 +1,11 @@
 import React from 'react'
 import './Random.css'
+import MascotBio from '../../components/mascotBio/mascotBio'
 
-export default function Random() {
+export default function Random({ mascot }) {
   return (
-    <div>random</div>
+    <>
+      <MascotBio mascot={mascot} />
+    </>
   )
 }

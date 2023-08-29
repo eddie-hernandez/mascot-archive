@@ -1,8 +1,11 @@
 import React from 'react'
 import './Hat.css'
+import Gallery from '../../components/gallery/Gallery'
 
-export default function Hat() {
+export default function Hat({ images }) {
   return (
-    <div>hat</div>
+    <div className="hat-container">
+      <Gallery images={images} />
+    </div>
   )
 }

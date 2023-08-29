@@ -44,8 +44,30 @@ export async function login(credentials) {
 
 export async function fetchPendingSubs() {
   try {
-    const pendingSubmissions = await adminAPI.fetchPendingSubs()
-    return pendingSubmissions
+    const pendingSubs = await adminAPI.fetchPendingSubs()
+    return pendingSubs
+  } catch (error) {
+    // Handle error, maybe log it or show a user-friendly message
+    console.error('Error fetching pending submissions:', error)
+    throw error
+  }
+}
+
+export async function fetchApprovedSubs() {
+  try {
+    const approvedSubs = await adminAPI.fetchApprovedSubs()
+    return approvedSubs
+  } catch (error) {
+    // Handle error, maybe log it or show a user-friendly message
+    console.error('Error fetching pending submissions:', error)
+    throw error
+  }
+}
+
+export async function fetchDeniedSubs() {
+  try {
+    const deniedSubs = await adminAPI.fetchDeniedSubs()
+    return deniedSubs
   } catch (error) {
     // Handle error, maybe log it or show a user-friendly message
     console.error('Error fetching pending submissions:', error)

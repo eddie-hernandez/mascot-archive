@@ -90,7 +90,7 @@ export default function Submit() {
               <input
                 type="checkbox"
                 checked={category === 'animal'}
-                onChange={() => setCategory('lil hat')}
+                onChange={() => setCategory('animal')}
                 disabled={!isPhotoSelected}
                 style={{ display: 'none' }}
               />
@@ -126,19 +126,19 @@ export default function Submit() {
             </label>
             <label
               className={`category ${
-                category === 'lil hat' ? 'selected' : ''
+                category === 'lil-hat' ? 'selected' : ''
               } ${!isPhotoSelected ? 'disabled' : ''}`}
             >
               <input
                 type="checkbox"
-                checked={category === 'lil hat'}
-                onChange={() => setCategory('lil hat')}
+                checked={category === 'lil-hat'}
+                onChange={() => setCategory('lil-hat')}
                 disabled={!isPhotoSelected}
                 style={{ display: 'none' }}
               />
               <div
                 className={
-                  category === 'lil hat'
+                  category === 'lil-hat'
                     ? 'category-selector active-selector'
                     : 'category-selector'
                 }

@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt')
 const Admin = require('../models/admin')
 const Submission = require('../models/submission')
 
-
 function createJWT(admin) {
   return jwt.sign(
     // data payload
@@ -55,7 +54,28 @@ async function login(req, res, next) {
 
 async function fetchPendingSubs(req, res) {
   try {
-    const pendingSubmissions = await Submission.find({ approved: false })
+    const pendingSubmissions = await Submission.find({
+      approved: false,
+      denied: false,
+    })
+    res.json(pendingSubmissions)
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching submissions' })
+  }
+}
+
+async function fetchApprovedSubs(req, res) {
+  try {
+    const pendingSubmissions = await Submission.find({ approved: true })
+    res.json(pendingSubmissions)
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching submissions' })
+  }
+}
+
+async function fetchDeniedSubs(req, res) {
+  try {
+    const pendingSubmissions = await Submission.find({ denied: true })
     res.json(pendingSubmissions)
   } catch (error) {
     res.status(500).json({ message: 'Error fetching submissions' })
@@ -84,5 +104,7 @@ module.exports = {
   login,
   verifyToken,
   fetchPendingSubs,
-  sortSubs
+  fetchApprovedSubs,
+  fetchDeniedSubs,
+  sortSubs,
 }
