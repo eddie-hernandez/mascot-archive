@@ -28,9 +28,7 @@ async function indexMascotsByCategory(req, res, next) {
 
 // show by mascot id
 async function findMascotById(req, res, next) {
-  if (req.params.id === undefined || 'random') {
-    return
-  } else {
+  if (req.params.id !== 'random') {
     try {
       const mascot = await Submission.findById(req.params.id)
       if (!mascot) return next(new Error('No mascot available'))

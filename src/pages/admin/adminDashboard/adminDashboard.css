@@ -1,0 +1,42 @@
+.admin-dashboard {
+  margin: 5vh 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.admin-gallery-container {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 5vh;
+}
+
+.dropdown {
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown:hover {
+  color: blue;
+}
+
+.active-dropdown {
+color: red;
+}
+
+.styledbtn {
+  border: 1px solid black;
+  padding: 0.75vh;
+  border-radius: 10px;
+  background: none;
+  font-size: 2vh;
+  cursor: pointer;
+}
+
+.styledbtn:hover {
+  background-color: blue;
+  color: white;
+}

@@ -6,8 +6,8 @@ import * as mascotService from '../../utilities/mascot-service'
 export default function Navbar({ setImages, setMascot }) {
   function handleCategoryClick(category) {
     try {
-      setImages([])
       setMascot(null)
+      setImages([])
       mascotService.indexMascotsByCategory(category).then((mascots) => {
         setImages(mascots)
       })
@@ -39,7 +39,7 @@ export default function Navbar({ setImages, setMascot }) {
         onClick={() => handleCategoryClick('animal')}
       >
         <div className="link-container">
-          <p className="link-text">animal</p>
+          <h5 className="link-text">animal</h5>
           <div className="active-dot" />
         </div>
       </NavLink>
@@ -51,7 +51,7 @@ export default function Navbar({ setImages, setMascot }) {
         onClick={() => handleCategoryClick('food')}
       >
         <div className="link-container">
-          <p className="link-text">food</p>
+          <h5 className="link-text">food</h5>
           <div className="active-dot" />
         </div>
       </NavLink>
@@ -63,7 +63,7 @@ export default function Navbar({ setImages, setMascot }) {
         onClick={() => handleCategoryClick('lil-hat')}
       >
         <div className="link-container">
-          <p className="link-text">lil hats</p>
+          <h5 className="link-text">lil hats</h5>
           <div className="active-dot" />
         </div>
       </NavLink>
@@ -75,7 +75,7 @@ export default function Navbar({ setImages, setMascot }) {
         onClick={handleRandomClick}
       >
         <div className="link-container">
-          <p className="link-text">random</p>
+          <h5 className="link-text">random</h5>
           <div className="active-dot" />
         </div>
       </NavLink>
@@ -90,7 +90,7 @@ export default function Navbar({ setImages, setMascot }) {
         }}
       >
         <div className="link-container">
-          <p className="link-text">submit</p>
+          <h5 className="link-text">submit</h5>
           <div className="active-dot" />
         </div>
       </NavLink>

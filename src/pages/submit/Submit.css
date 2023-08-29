@@ -1,72 +1,142 @@
+.submit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10vh;
+  height: 60vh;
+}
+
+.submit-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vh;
+  margin-top: 5vh;
+  width: 50%;
+}
+
+.success-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #20e700;
+  width: 35vh;
+  height: 35vh;
+  border-radius: 50%;
+}
+
+.success-text {
+  font-family: 'Roc Grotesk', sans-serif;
+  color: black;
+  display: inline-block;
+  margin-top: 0.4em;
+}
+
+.success-subtext {
+  display: block;
+  margin-top: -0.8em;
+}
+
+.success-mark {
+  font-family: cursive;
+}
+
 .photo-upload-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .photo-upload-container label {
-  display: block; /* Make label a block element */
-  margin-bottom: 8px; /* Add some spacing below */
-}
-
-/* Hide the default input appearance */
-.photo-upload-container input[type="file"] {
-  display: none;
-}
-
-/* Style the custom button */
-.photo-upload-container label::before {
-  content: "CHOOSE FILE"; /* Label content */
-  background-color: #007bff;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.preview-image {
-  width: 300px;
-  max-height: 600px;
-}
-
-.submit-form-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10vh;
-  row-gap: 5vh;
+  width: 100%;
 }
 
-.text-block {
-  width: 70vw;
-  padding: 1.5vh;
+/* hide default input appearances */
+.photo-upload-container input[type='file'] {
+  display: none;
+  width: 100%;
+}
+
+.photo-upload-container label.changed::before {
+  content: 'CHANGE PHOTO';
+}
+
+/* style the custom form inputs */
+.photo-upload-container label::before {
+  content: 'UPLOAD PHOTO';
+  font-size: 1.75vh;
+  background: none;
+  color: black;
+  padding: 1.5vh 2vh;
   border: 2px solid gray;
   border-radius: 10px;
   cursor: pointer;
+  width: 100%;
+  text-align: left;
 }
 
-.text-block p {
+.text-block {
   display: flex;
-  margin-left: 1vh;
+  flex-direction: column;
+  padding: 1.5vh 2vh;
+  border: 2px solid gray;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-#submit.text-block {
+.text-block input[type='text'] {
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+  font-size: 1.75vh;
+  color: black;
+}
+
+.text-block input[type='text']::placeholder {
+  color: black;
+}
+
+.text-block input[type='text']:disabled::placeholder {
+  color: gray;
+}
+
+.text-block input[type='text']:disabled {
+  cursor: not-allowed;
+}
+
+.submit-block {
+  width: 20vw;
+  align-self: center;
+}
+
+.submit-btn {
   display: flex;
-  justify-content: center;
-  width: 35vw;
+  border: none;
+  background: none;
+  font-size: 1.75vh;
+  align-self: center;
+  cursor: pointer;
 }
 
-#submit.text-block p {
-  margin-left: 0vh;
+.submit-btn:disabled {
+  cursor: not-allowed;
+}
+
+.preview-image {
+  width: 20vw;
+  max-height: 60vh;
 }
 
 .category-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 71.5vw;
+  width: 100%;
 }
 
 .category {
@@ -84,5 +154,5 @@
 }
 
 .active-selector {
-  background-color: #20E700;
+  background-color: #20e700;
 }

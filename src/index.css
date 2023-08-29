@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,10 +23,34 @@ code {
   margin-block-start: 0px;
 }
 
+* {
+  font-weight: normal;
+}
+
 h1 {
   font-size: 8vh;
 }
 
-p {
+h2 {
+  font-size: 6vh;
+}
+
+h3 {
+  font-size: 5vh;
+}
+
+h4 {
+  font-size: 4vh;
+}
+
+h5 {
   font-size: 3vh;
+}
+
+h6 {
+  font-size: 2vh;
+}
+
+p {
+  font-size: 1.5vh;
 }

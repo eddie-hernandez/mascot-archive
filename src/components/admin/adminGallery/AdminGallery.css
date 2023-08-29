@@ -1,0 +1,27 @@
+.gallery {
+  margin-top: 3vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 80vw;
+}
+
+.admin-sub-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 20vw;
+  row-gap: 1vh;
+  margin-bottom: 4vh;
+}
+
+.admin-sub-img {
+  width: 10vw;
+  max-height: 25vh;
+}
+
+.classify-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}

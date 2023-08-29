@@ -19,7 +19,7 @@ import Home from './pages/home/Home'
 import Submit from './pages/submit/Submit'
 import AdminDashboard from './pages/admin/adminDashboard/AdminDashboard'
 import AdminLogin from './pages/admin/adminLogin/AdminLogin'
-import MascotBio from './components/mascotBio/mascotBio.js'
+import MascotBio from './components/mascotBio/MascotBio.js'
 import { useLocation } from 'react-router-dom'
 
 export default function App() {

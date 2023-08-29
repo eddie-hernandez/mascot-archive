@@ -6,7 +6,3 @@ const BASE_URL = '/api/submit'
 export function submitPhoto(formData) {
   return sendRequest(BASE_URL, 'POST', formData);
 }
-
-// index photos
-
-// find specific photo

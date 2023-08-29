@@ -4,12 +4,20 @@ import { useDispatch } from 'react-redux'
 import { logout } from '../../../features/authSlice'
 import { logOut } from '../../../utilities/admin-service'
 import { useNavigate } from 'react-router-dom'
-import { PendingGallery, ApprovedGallery, DeniedGallery } from '../../../components/admin/adminGallery/AdminGallery'
+import {
+  PendingGallery,
+  ApprovedGallery,
+  DeniedGallery,
+} from '../../../components/admin/adminGallery/AdminGallery'
+import './AdminDashboard.css'
 
 export default function AdminDashboard({ setAdmin }) {
   const [pendingSubs, setPendingSubs] = useState([])
   const [approvedSubs, setApprovedSubs] = useState([])
   const [deniedSubs, setDeniedSubs] = useState([])
+  const [showPending, setShowPending] = useState(false)
+  const [showApproved, setShowApproved] = useState(false)
+  const [showDenied, setShowDenied] = useState(false)
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -82,20 +90,41 @@ export default function AdminDashboard({ setAdmin }) {
   }
 
   return (
-    <div>
-      <h2>Admin Dashboard</h2>
-      <button onClick={handleLogOut}>Admin Logout</button>
-      <div className="admin-gallery-container">
-        <h2>Pending({pendingSubs.length})</h2>
-        <PendingGallery pendingSubs={pendingSubs} handleSort={handleSort} />
+    <div className="admin-dashboard">
+      <div className="admin-dashboard-header">
+        <h5>Admin Dashboard</h5>
+        <button onClick={handleLogOut} className='styledbtn'>Admin Logout</button>
       </div>
       <div className="admin-gallery-container">
-        <h2>Approved ({approvedSubs.length}) </h2>
-        <ApprovedGallery approvedSubs={approvedSubs} />
-      </div>
-      <div className="admin-gallery-container">
-        <h2>Denied ({deniedSubs.length})</h2>
-        <DeniedGallery deniedSubs={deniedSubs} />
+        <div className="admin-gallery">
+          <h5
+            className={showPending ? 'dropdown active-dropdown' : 'dropdown'}
+            onClick={() => setShowPending(!showPending)}
+          >
+            Pending ({pendingSubs.length})
+          </h5>
+          {showPending && (
+            <PendingGallery pendingSubs={pendingSubs} handleSort={handleSort} />
+          )}
+        </div>
+        <div className="admin-gallery">
+          <h5
+            className={showApproved ? 'dropdown active-dropdown' : 'dropdown'}
+            onClick={() => setShowApproved(!showApproved)}
+          >
+            Approved ({approvedSubs.length})
+          </h5>
+          {showApproved && <ApprovedGallery approvedSubs={approvedSubs} />}
+        </div>
+        <div className="admin-gallery">
+          <h5
+            className={showDenied ? 'dropdown active-dropdown' : 'dropdown'}
+            onClick={() => setShowDenied(!showDenied)}
+          >
+            Denied ({deniedSubs.length})
+          </h5>
+          {showDenied && <DeniedGallery deniedSubs={deniedSubs} />}
+        </div>
       </div>
     </div>
   )

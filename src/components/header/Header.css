@@ -20,12 +20,12 @@
 
 .logo-text {
   font-family: 'Roc Grotesk', sans-serif;
-  color: black; /* Adjust the color if needed */
-  margin: 0; /* Remove default margin to ensure text is aligned properly */
+  color: black;
+  margin: 0;
   display: inline-block;
 }
 
 .logo-subtext {
   display: block;
-  margin-top: -0.6em; /* fine-tunes the line spacing */
+  margin-top: -0.7em;
 }

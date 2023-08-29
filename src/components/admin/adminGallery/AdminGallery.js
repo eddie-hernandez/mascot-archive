@@ -3,18 +3,31 @@ import './AdminGallery.css'
 
 export function PendingGallery({ pendingSubs, handleSort }) {
   return (
-    <div className="pending-gallery">
+    <div className="gallery">
       {pendingSubs.map((submission) => (
-        <div className="pending-photo" key={submission._id}>
-          <img src={submission.imagePath} alt="submission" />
+        <div className="admin-sub-container" key={submission._id}>
+          <img
+            className="admin-sub-img"
+            src={submission.imagePath}
+            alt="submission"
+          />
           <p>Category: {submission.category}</p>
           <p>Location: {submission.locationDescription}</p>
-          <button onClick={() => handleSort(submission._id, true)}>
-            Approve
-          </button>
-          <button onClick={() => handleSort(submission._id, false)}>
-            Deny
-          </button>
+          <p>Comments: {submission.comments}</p>
+          <div className='classify-btns'>
+            <button
+              className="styledbtn"
+              onClick={() => handleSort(submission._id, true)}
+            >
+              Approve
+            </button>
+            <button
+              className="styledbtn"
+              onClick={() => handleSort(submission._id, false)}
+            >
+              Deny
+            </button>
+          </div>
         </div>
       ))}
     </div>
@@ -23,10 +36,14 @@ export function PendingGallery({ pendingSubs, handleSort }) {
 
 export function ApprovedGallery({ approvedSubs }) {
   return (
-    <div className="classified-gallery">
+    <div className="gallery">
       {approvedSubs.map((submission) => (
-        <div className="pending-photo" key={submission._id}>
-          <img src={submission.imagePath} alt="submission" />
+        <div className="admin-sub-container" key={submission._id}>
+          <img
+            className="admin-sub-img"
+            src={submission.imagePath}
+            alt="submission"
+          />
           <p>Category: {submission.category}</p>
           <p>Location: {submission.locationDescription}</p>
         </div>
@@ -37,10 +54,14 @@ export function ApprovedGallery({ approvedSubs }) {
 
 export function DeniedGallery({ deniedSubs }) {
   return (
-    <div className="classified-gallery">
+    <div className="gallery">
       {deniedSubs.map((submission) => (
-        <div className="pending-photo" key={submission._id}>
-          <img src={submission.imagePath} alt="submission" />
+        <div className="admin-sub-container" key={submission._id}>
+          <img
+            className="admin-sub-img"
+            src={submission.imagePath}
+            alt="submission"
+          />
           <p>Category: {submission.category}</p>
           <p>Location: {submission.locationDescription}</p>
         </div>
