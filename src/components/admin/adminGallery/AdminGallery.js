@@ -11,9 +11,9 @@ export function PendingGallery({ pendingSubs, handleSort }) {
             src={submission.imagePath}
             alt="submission"
           />
-          <p>Category: {submission.category}</p>
-          <p>Location: {submission.locationDescription}</p>
-          <p>Comments: {submission.comments}</p>
+          <p><u><span style={{ fontWeight: 'bold' }}>Types</span></u>: <i>{submission.types.join(', ')}</i></p>
+          <p><u><span style={{ fontWeight: 'bold' }}>Location</span></u>: <i>{submission.locationDescription}</i></p>
+          <p><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: <i>{submission.comments ? submission.comments : 'n/a'}</i></p>
           <div className='classify-btns'>
             <button
               className="styledbtn"
@@ -44,8 +44,9 @@ export function ApprovedGallery({ approvedSubs }) {
             src={submission.imagePath}
             alt="submission"
           />
-          <p>Category: {submission.category}</p>
-          <p>Location: {submission.locationDescription}</p>
+          <p><u><span style={{fontWeight: 'bold'}}>Types</span></u>: <i>{submission.types.join(', ')}</i></p>
+          <p><u><span style={{fontWeight: 'bold'}}>Location</span></u>: <i>{submission.locationDescription}</i></p>
+          <p><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: <i>{submission.comments ? submission.comments : 'n/a'}</i></p>
         </div>
       ))}
     </div>
@@ -62,8 +63,9 @@ export function DeniedGallery({ deniedSubs }) {
             src={submission.imagePath}
             alt="submission"
           />
-          <p>Category: {submission.category}</p>
-          <p>Location: {submission.locationDescription}</p>
+          <p><u><span style={{fontWeight: 'bold'}}>Types</span></u>: <i>{submission.types.join(', ')}</i></p>
+          <p><u><span style={{fontWeight: 'bold'}}>Location</span></u>: <i>{submission.locationDescription}</i></p>
+          <p><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: <i>{submission.comments ? submission.comments : 'n/a'}</i></p>
         </div>
       ))}
     </div>

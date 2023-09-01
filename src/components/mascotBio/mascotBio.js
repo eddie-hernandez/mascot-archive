@@ -1,21 +1,24 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import './MascotBio.css'
 import * as mascotService from '../../utilities/mascot-service'
 
 export default function MascotBio({ setMascot, mascot }) {
   const { id } = useParams()
+  const location = useLocation()
 
   useEffect(() => {
-    mascotService
-      .showMascot(id)
-      .then((response) => {
-        console.log(response)
-        setMascot(response.mascot)
-      })
-      .catch((error) => {
-        console.error('Error fetching mascot details', error)
-      })
+    if (location.pathname !== '/random') {
+      mascotService
+        .showMascot(id)
+        .then((response) => {
+          console.log(response)
+          setMascot(response.mascot)
+        })
+        .catch((error) => {
+          console.error('Error fetching mascot details', error)
+        })
+    }
   }, [])
 
   return (
@@ -29,16 +32,16 @@ export default function MascotBio({ setMascot, mascot }) {
           />
           <div className="mascot-bio">
             <div className="mascot-bio-group">
-              <p>TYPE</p>
-              <p>{mascot.category}</p>
+              <h6>TYPE(S)</h6>
+              <p><i>{mascot.types.join(', ')}</i></p>
             </div>
             <div className="mascot-bio-group">
-              <p>LOCATION</p>
-              <p>{mascot.locationDescription}</p>
+              <h6>LOCATION</h6>
+              <p><i>{mascot.locationDescription}</i></p>
             </div>
             <div className="mascot-bio-group">
-              <p>ETC</p>
-              <p>{mascot.comments}</p>
+              <h6>ETC</h6>
+              <p><i>{mascot.comments ? mascot.comments : 'n/a'}</i></p>
             </div>
           </div>
         </div>

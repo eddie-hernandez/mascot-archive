@@ -3,6 +3,10 @@
   src: url('./fonts/rocgrotesk-black.otf') format('opentype');
 }
 
+html, body, #root, .app {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -53,4 +57,43 @@ h6 {
 
 p {
   font-size: 1.5vh;
+}
+
+button {
+  align-items: center;
+}
+
+button:hover {
+  border-color: gray;
+}
+
+
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 16vw;
+  }
+  
+  h2 {
+    font-size: 12vw;
+  }
+  
+  h3 {
+    font-size: 10vw;
+  }
+  
+  h4 {
+    font-size: 8vw;
+  }
+  
+  h5 {
+    font-size: 6vw;
+  }
+  
+  h6 {
+    font-size: 4vw;
+  }
+  
+  p {
+    font-size: 3vw;
+  }
 }

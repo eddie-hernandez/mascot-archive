@@ -12,12 +12,17 @@ async function indexApprovedMascots(req, res, next) {
   }
 }
 
-// index mascots by category
-async function indexMascotsByCategory(req, res, next) {
+// index mascots by type
+async function indexMascotsByType(req, res, next) {
   try {
-    // get category from URL parameter
-    const category = req.params.category
-    const mascots = await Submission.find({ approved: true, category })
+    console.log(req.params)
+    const requestedTypes = req.params.types
+
+    // $in operator matches documents that have at least one of the requested types
+    const mascots = await Submission.find({
+      approved: true,
+      types: { $in: requestedTypes },
+    });
     if (!mascots) return new Error('No mascots available')
     return res.status(200).json({ mascots })
   } catch (error) {
@@ -62,6 +67,6 @@ async function getRandomMascot(req, res, next) {
 module.exports = {
   indexApprovedMascots,
   getRandomMascot,
-  indexMascotsByCategory,
+  indexMascotsByType,
   findMascotById,
 }

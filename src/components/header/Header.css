@@ -1,8 +1,14 @@
 .header {
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-around;
   align-items: center;
-  margin-top: 5vh;
+  padding-top: 2vh;
+  position: sticky;
+  top: 0;
+  background-color: #F2EEE6;
+  z-index: 100;
+  padding-bottom: 3vh;
 }
 
 .blank {
@@ -28,4 +34,11 @@
 .logo-subtext {
   display: block;
   margin-top: -0.7em;
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    flex-direction: row;
+    padding-top: 5vh;
+  }
 }

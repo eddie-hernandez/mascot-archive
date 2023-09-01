@@ -1,8 +1,11 @@
 .navbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
-  align-items: center;
-  column-gap: 10vh;
+  /* align-items center for a less dramatic bump on active-link */
+  align-items: flex-end;
+  column-gap: 2vw;
+  row-gap: 1vh;
 }
 
 .navbar-link {
@@ -35,4 +38,13 @@
 
 .active-link .active-dot {
   display: block;
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5vw;
+  }
 }

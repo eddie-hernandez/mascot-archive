@@ -8,7 +8,7 @@ router.get('/', mascotsCtrlr.indexApprovedMascots)
 router.get('/random', mascotsCtrlr.getRandomMascot);
 // GET /api/mascots/:id
 router.get('/:id', mascotsCtrlr.findMascotById)
-// GET /api/mascots/category/:id
-router.get('/category/:category', mascotsCtrlr.indexMascotsByCategory)
+// GET /api/mascots/types
+router.get('/types/:types', mascotsCtrlr.indexMascotsByType)
 
 module.exports = router

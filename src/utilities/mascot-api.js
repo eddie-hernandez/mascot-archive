@@ -11,9 +11,9 @@ export function findMascotById(mascotId) {
   return sendRequest(BASE_URL + `/${mascotId}`, 'GET')
 }
 
-// index mascots by category
-export function indexMascotsByCategory(category) {
-  return sendRequest(`${BASE_URL}/category/${category}`, 'GET')
+// index mascots by type
+export function indexMascotsByType(type) {
+  return sendRequest(`${BASE_URL}/types/${type}`, 'GET')
 }
 
 // index random mascot

@@ -4,13 +4,14 @@ import './Navbar.css'
 import * as mascotService from '../../utilities/mascot-service'
 
 export default function Navbar({ setImages, setMascot }) {
-  function handleCategoryClick(category) {
+  function handleTypeClick(type) {
     try {
       setMascot(null)
       setImages([])
-      mascotService.indexMascotsByCategory(category).then((mascots) => {
-        setImages(mascots)
-      })
+
+      mascotService.indexMascotsByType(type).then((mascots) => {
+        setImages(mascots);
+      });
     } catch (error) {
       console.error('Error fetching mascots:', error)
     }
@@ -36,7 +37,7 @@ export default function Navbar({ setImages, setMascot }) {
         className={({ isActive }) =>
           isActive ? 'active-link navbar-link' : 'navbar-link'
         }
-        onClick={() => handleCategoryClick('animal')}
+        onClick={() => handleTypeClick('animal')}
       >
         <div className="link-container">
           <h5 className="link-text">animal</h5>
@@ -48,7 +49,7 @@ export default function Navbar({ setImages, setMascot }) {
         className={({ isActive }) =>
           isActive ? 'active-link navbar-link' : 'navbar-link'
         }
-        onClick={() => handleCategoryClick('food')}
+        onClick={() => handleTypeClick('food')}
       >
         <div className="link-container">
           <h5 className="link-text">food</h5>
@@ -56,14 +57,14 @@ export default function Navbar({ setImages, setMascot }) {
         </div>
       </NavLink>
       <NavLink
-        to="/hats"
+        to="/lil-hat"
         className={({ isActive }) =>
           isActive ? 'active-link navbar-link' : 'navbar-link'
         }
-        onClick={() => handleCategoryClick('lil-hat')}
+        onClick={() => handleTypeClick('lil-hat')}
       >
         <div className="link-container">
-          <h5 className="link-text">lil hats</h5>
+          <h5 className="link-text">lil hat</h5>
           <div className="active-dot" />
         </div>
       </NavLink>

@@ -7,17 +7,17 @@ const submissionSchema = new Schema(
       type: String,
       required: true,
     },
-    category: {
+    types: [{
       type: String,
       required: true,
-    },
+    }],
     locationDescription: {
       type: String,
       required: true,
     },
     comments: {
       type: String,
-      required: true,
+      required: false,
     },
     approved: {
       type: Boolean,

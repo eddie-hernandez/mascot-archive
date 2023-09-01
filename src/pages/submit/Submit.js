@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import { submitNewPhoto } from '../../utilities/submission-service'
+import { useNavigate } from 'react-router-dom'
 import './Submit.css'
 import PhotoCrop from '../../components/photoCrop/photoCrop'
 
 export default function Submit() {
-  const [category, setCategory] = useState('')
+  const navigate = useNavigate()
+  const [selectedTypes, setSelectedTypes] = useState([])
   const [locationDescription, setLocationDescription] = useState('')
   const [comments, setComments] = useState('')
   const [photo, setPhoto] = useState(null)
   const [message, setMessage] = useState('')
   const [previewImage, setPreviewImage] = useState(null)
   const [submissionSuccess, setSubmissionSuccess] = useState(false)
+
   // track active URL in case user wants to upload different photo
   const [activeObjectURL, setActiveObjectURL] = useState(null)
 
@@ -18,7 +21,10 @@ export default function Submit() {
     event.preventDefault()
 
     const formData = new FormData()
-    formData.append('category', category)
+    // for each type in 'types'
+    selectedTypes.forEach(type => {
+      formData.append('types', type);
+    });
     formData.append('locationDescription', locationDescription)
     formData.append('comments', comments)
     formData.append('photo', photo)
@@ -31,6 +37,7 @@ export default function Submit() {
       if (response.message) {
         setMessage('Thanks! Your submission has been received.')
         setSubmissionSuccess(true)
+        setTimeout(() => navigate('/'), 2000)
       } else {
         const errorData = await response.json()
         setMessage(`An error occurred: ${errorData.error}`)
@@ -58,6 +65,14 @@ export default function Submit() {
 
     setPhoto(selectedFile)
     setPreviewImage(newObjectURL)
+  }
+
+  function handleTypeSelection(type) {
+    if (selectedTypes.includes(type)) {
+      setSelectedTypes(selectedTypes.filter(selectedType => selectedType !== type));
+    } else {
+      setSelectedTypes([...selectedTypes, type]);
+    }
   }
 
   // disable form options until photo is selected
@@ -96,73 +111,67 @@ export default function Submit() {
 
           {/* {previewImage && <PhotoCrop previewImage={previewImage} />} */}
         </div>
-        <div className="category-container">
+        <div className="type-container">
           <label
-            className={`category ${category === 'animal' ? 'selected' : ''} ${
-              !isPhotoSelected ? 'disabled' : ''
-            }`}
+            className={`type ${selectedTypes.includes('animal') ? 'selected' : ''} ${!isPhotoSelected ? 'disabled' : ''}`}
           >
             <input
               type="checkbox"
-              checked={category === 'animal'}
-              onChange={() => setCategory('animal')}
+              checked={selectedTypes.includes('animal')}
+              onChange={() => handleTypeSelection('animal')}
               disabled={!isPhotoSelected}
               style={{ display: 'none' }}
             />
             <div
               className={
-                category === 'animal'
-                  ? 'category-selector active-selector'
-                  : 'category-selector'
+                selectedTypes.includes('animal')
+                  ? 'type-selector active-selector' : isPhotoSelected ?
+                    'type-selector' : 'disabled-selector type-selector'
               }
             />
-            <p>animal</p>
+            <h6 className={isPhotoSelected ? 'check-text' : 'disabled-text'}>animal</h6>
           </label>
           <label
-            className={`category ${category === 'food' ? 'selected' : ''} ${
-              !isPhotoSelected ? 'disabled' : ''
-            }`}
+            className={`type ${selectedTypes.includes('food') ? 'selected' : ''} ${!isPhotoSelected ? 'disabled' : ''}`}
           >
             <input
               type="checkbox"
-              checked={category === 'food'}
-              onChange={() => setCategory('food')}
+              checked={selectedTypes.includes('food')}
+              onChange={() => handleTypeSelection('food')}
               disabled={!isPhotoSelected}
               style={{ display: 'none' }}
             />
             <div
               className={
-                category === 'food'
-                  ? 'category-selector active-selector'
-                  : 'category-selector'
+                selectedTypes.includes('food')
+                  ? 'type-selector active-selector' : isPhotoSelected ?
+                    'type-selector' : 'disabled-selector type-selector'
               }
             />
-            <p>food</p>
+            <h6 className={isPhotoSelected ? 'check-text' : 'disabled-text'}>food</h6>
           </label>
           <label
-            className={`category ${category === 'lil-hat' ? 'selected' : ''} ${
-              !isPhotoSelected ? 'disabled' : ''
-            }`}
+            className={`type ${selectedTypes.includes('lil-hat') ? 'selected' : ''} ${!isPhotoSelected ? 'disabled' : ''}`}
           >
             <input
               type="checkbox"
-              checked={category === 'lil-hat'}
-              onChange={() => setCategory('lil-hat')}
+              checked={selectedTypes.includes('lil-hat')}
+              onChange={() => handleTypeSelection('lil-hat')}
               disabled={!isPhotoSelected}
               style={{ display: 'none' }}
             />
             <div
               className={
-                category === 'lil-hat'
-                  ? 'category-selector active-selector'
-                  : 'category-selector'
+                selectedTypes.includes('lil-hat')
+                  ? 'type-selector active-selector' : isPhotoSelected ?
+                    'type-selector' : 'disabled-selector type-selector'
               }
             />
-            <p>lil hat</p>
+            <h6>lil hat</h6>
           </label>
         </div>
 
-        <div className="text-block">
+        <div className={isPhotoSelected ? 'text-block' : 'text-block disabled'}>
           <input
             type="text"
             name="locationDescription"
@@ -175,7 +184,7 @@ export default function Submit() {
           />
         </div>
 
-        <div className="text-block">
+        <div className={isPhotoSelected ? 'text-block' : 'text-block disabled'}>
           <input
             type="text"
             name="comments"
@@ -188,15 +197,13 @@ export default function Submit() {
           />
         </div>
 
-        <div className="text-block submit-block">
-          <button
-            className="submit-btn"
-            type="submit"
-            disabled={!isPhotoSelected}
-          >
-            SUBMIT
-          </button>
-        </div>
+        <button
+          className="text-block submit-block"
+          type="submit"
+          disabled={!isPhotoSelected}
+        >
+          SUBMIT
+        </button>
 
         <p>{message}</p>
       </form>

@@ -12,13 +12,13 @@ export async function indexApprovedMascots() {
   }
 }
 
-// indexes mascots by category
-export async function indexMascotsByCategory(category) {
+// indexes mascots by type
+export async function indexMascotsByType(type) {
   try {
-    const response = await mascotAPI.indexMascotsByCategory(category);
+    const response = await mascotAPI.indexMascotsByType(type);
     return response.mascots
   } catch (error) {
-    console.error('Error fetching mascots by category:', error);
+    console.error('Error fetching mascots by type:', error);
     throw error;
   }
 }

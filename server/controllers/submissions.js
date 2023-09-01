@@ -5,10 +5,10 @@ async function postSubmission(req, res, next) {
     // Save metadata to MongoDB
     const newSubmission = new Submission({
       imagePath: req.file.location,
-      category: req.body.category,
-      locationDescription: req.body.locationDescription,
-      comments: req.body.comments,
+      locationDescription: req.body.locationDescription
     })
+
+    newSubmission.types = req.body.types;
 
     await newSubmission.save()
 

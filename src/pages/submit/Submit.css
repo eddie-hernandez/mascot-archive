@@ -1,8 +1,8 @@
 .submit-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  column-gap: 10vh;
   height: 60vh;
 }
 
@@ -11,7 +11,7 @@
   flex-direction: column;
   row-gap: 5vh;
   margin-top: 5vh;
-  width: 50%;
+  width: 80%;
 }
 
 .success-message {
@@ -78,6 +78,11 @@
   text-align: left;
 }
 
+.photo-upload-container:hover {
+  border-radius: 10px;
+  background-color: #20e700;
+}
+
 .text-block {
   display: flex;
   flex-direction: column;
@@ -86,6 +91,10 @@
   border-radius: 10px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.text-block.disabled:hover {
+  border-color: #c1c0bd;
 }
 
 .text-block input[type='text'] {
@@ -110,42 +119,57 @@
 }
 
 .submit-block {
-  width: 20vw;
+  width: 50vw;
   align-self: center;
-}
-
-.submit-btn {
-  display: flex;
-  border: none;
   background: none;
-  font-size: 1.75vh;
-  align-self: center;
   cursor: pointer;
 }
 
-.submit-btn:disabled {
+.submit-block:hover {
+  border: 2px solid gray !important;
+  background-color: #20e700;
+}
+
+.submit-block:disabled {
   cursor: not-allowed;
+  font-size: 1.75vh;
+  align-items: center;
+}
+
+.submit-block:disabled:hover {
+  background-color: #e4e3de;
+  border-color: #c1c0bd;
 }
 
 .preview-image {
-  width: 20vw;
+  margin-top: 55vh;
+  width: 40vh;
   max-height: 60vh;
 }
 
-.category-container {
+.type-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-.category {
+.text-block:hover {
+  border-color: #20e700;
+}
+
+.type {
   display: flex;
   align-items: center;
   column-gap: 2vh;
+  cursor: pointer;
 }
 
-.category-selector {
+.type.disabled {
+  color: gray;
+}
+
+.type-selector {
   width: 2vh;
   height: 2vh;
   border-radius: 50px;
@@ -153,6 +177,38 @@
   cursor: pointer;
 }
 
+.disabled-selector {
+  background-color: #e4e3de;
+  border-color: #c1c0bd;
+  cursor: not-allowed;
+}
+
 .active-selector {
   background-color: #20e700;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+@media screen and (min-width: 1200px) {
+  .submit-container {
+    flex-direction: row;
+    margin-top: 0vh;
+    column-gap: 10vh;
+  }
+
+  .submit-form {
+    width: 50%;
+  }
+
+  .submit-block {
+    width: 20vw;
+  }
+
+  .preview-image {
+    margin-top: 0vh;
+    width: 20vw;
+    max-height: 60vh;
+  }
 }
