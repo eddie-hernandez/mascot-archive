@@ -1,4 +1,4 @@
-const { SubmissionCount } = require('../config/database');
+const SubmissionCount = require('../models/submissionCount');
 
 async function trackSubmissions(req, res, next) {
   try {
