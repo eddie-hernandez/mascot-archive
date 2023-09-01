@@ -66,7 +66,7 @@ export default function App() {
           console.error('Error fetching mascots:', error)
         })
     }
-  }, [location.pathname]);
+  }, [location.pathname, typeLocation]);
 
   return (
     <div className="App">
