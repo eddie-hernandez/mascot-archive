@@ -14,26 +14,12 @@
   width: 80%;
 }
 
-.success-message {
+.thank-you-hero {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #20e700;
-  width: 35vh;
-  height: 35vh;
-  border-radius: 50%;
-}
-
-.success-text {
-  font-family: 'Roc Grotesk', sans-serif;
-  color: black;
-  display: inline-block;
-  margin-top: 0.4em;
-}
-
-.success-subtext {
-  display: block;
-  margin-top: -0.8em;
+  width: 30vh;
+  height: 30vh;
 }
 
 .success-mark {

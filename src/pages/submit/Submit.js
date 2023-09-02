@@ -3,6 +3,7 @@ import { submitNewPhoto } from '../../utilities/submission-service'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setCursorHover } from '../../features/cursorSlice'
+import thanksHero from '../../assets/hero/thanks-hero.svg'
 import './Submit.css'
 
 export default function Submit() {
@@ -89,14 +90,7 @@ export default function Submit() {
   if (submissionSuccess) {
     return (
       <div className="submit-container">
-        <div className="success-message">
-          <h2 className="success-text">
-            THANK{' '}
-            <span className="success-subtext">
-              YOU<span className="success-mark">!</span>
-            </span>
-          </h2>
-        </div>
+        <img src={thanksHero} alt="thank you hero" className="thank-you-hero" />
       </div>
     )
   }
@@ -128,7 +122,6 @@ export default function Submit() {
               />
             </div>
           </label>
-
         </div>
         <div className="type-container">
           <label
