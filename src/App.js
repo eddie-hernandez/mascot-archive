@@ -100,14 +100,24 @@ export default function App() {
     <div className="App">
       <CustomCursor cursorHover={cursorHover} cursorColor={cursorColor} />
       <div className="mobile-header">
-        <Logo handleLogoClick={handleLogoClick} />
+        <Logo
+          handleLogoClick={handleLogoClick}
+          setCursorHover={setCursorHover}
+        />
       </div>
       <div className="mobile-nav">
-        <Navbar setImages={setImages} setMascot={setMascot} />
+        <Navbar
+          setImages={setImages}
+          setMascot={setMascot}
+          setCursorHover={setCursorHover}
+        />
       </div>
       <div className="desktop-header">
         <div className="blank" />
-        <CursorColorPicker handleCursorColor={handleCursorColor} setCursorHover={setCursorHover} />
+        <CursorColorPicker
+          handleCursorColor={handleCursorColor}
+          setCursorHover={setCursorHover}
+        />
         <Navbar
           setImages={setImages}
           setMascot={setMascot}

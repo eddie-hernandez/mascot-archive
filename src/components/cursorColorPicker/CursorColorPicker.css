@@ -1,7 +1,13 @@
 .cursor-color-picker {
+  display: none;
+}
+
+@media screen and (min-width: 1001px) {
+.cursor-color-picker {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 3vh;
   height: 100%;
+}
 }
