@@ -1,7 +1,10 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { setCursorHover } from '../../../features/cursorSlice'
 import './AdminGallery.css'
 
-export function PendingGallery({ pendingSubs, handleSort, setCursorHover }) {
+export function PendingGallery({ pendingSubs, handleSort }) {
+  const dispatch = useDispatch()
   return (
     <div className="gallery">
       {pendingSubs.map((submission) => (
@@ -18,16 +21,16 @@ export function PendingGallery({ pendingSubs, handleSort, setCursorHover }) {
             <button
               className="styledbtn"
               onClick={() => handleSort(submission._id, true)}
-              onMouseEnter={() => setCursorHover(true)} 
-              onMouseLeave={() => setCursorHover(false)}
+              onMouseEnter={() => dispatch(setCursorHover(true))} 
+              onMouseLeave={() => dispatch(setCursorHover(false))}
             >
               Approve
             </button>
             <button
               className="styledbtn"
               onClick={() => handleSort(submission._id, false)}
-              onMouseEnter={() => setCursorHover(true)} 
-              onMouseLeave={() => setCursorHover(false)}
+              onMouseEnter={() => dispatch(setCursorHover(true))} 
+              onMouseLeave={() => dispatch(setCursorHover(false))}
             >
               Deny
             </button>
@@ -38,7 +41,7 @@ export function PendingGallery({ pendingSubs, handleSort, setCursorHover }) {
   )
 }
 
-export function ApprovedGallery({ approvedSubs, setCursorHover }) {
+export function ApprovedGallery({ approvedSubs }) {
   return (
     <div className="gallery">
       {approvedSubs.map((submission) => (
@@ -57,7 +60,7 @@ export function ApprovedGallery({ approvedSubs, setCursorHover }) {
   )
 }
 
-export function DeniedGallery({ deniedSubs, setCursorHover }) {
+export function DeniedGallery({ deniedSubs }) {
   return (
     <div className="gallery">
       {deniedSubs.map((submission) => (

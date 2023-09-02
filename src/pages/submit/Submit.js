@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { submitNewPhoto } from '../../utilities/submission-service'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setCursorHover } from '../../features/cursorSlice'
 import './Submit.css'
-import PhotoCrop from '../../components/photoCrop/photoCrop'
 
 export default function Submit() {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [selectedTypes, setSelectedTypes] = useState([])
   const [locationDescription, setLocationDescription] = useState('')
@@ -22,9 +24,9 @@ export default function Submit() {
 
     const formData = new FormData()
     // for each type in 'types'
-    selectedTypes.forEach(type => {
-      formData.append('types', type);
-    });
+    selectedTypes.forEach((type) => {
+      formData.append('types', type)
+    })
     formData.append('locationDescription', locationDescription)
     formData.append('comments', comments)
     formData.append('photo', photo)
@@ -34,7 +36,7 @@ export default function Submit() {
       const response = await submitNewPhoto(formData)
 
       if (response.status === 429) {
-        setMessage('Too many submissions, please try again later.');
+        setMessage('Too many submissions, please try again later.')
       }
 
       if (response.message) {
@@ -72,9 +74,11 @@ export default function Submit() {
 
   function handleTypeSelection(type) {
     if (selectedTypes.includes(type)) {
-      setSelectedTypes(selectedTypes.filter(selectedType => selectedType !== type));
+      setSelectedTypes(
+        selectedTypes.filter((selectedType) => selectedType !== type)
+      )
     } else {
-      setSelectedTypes([...selectedTypes, type]);
+      setSelectedTypes([...selectedTypes, type])
     }
   }
 
@@ -87,7 +91,10 @@ export default function Submit() {
       <div className="submit-container">
         <div className="success-message">
           <h2 className="success-text">
-            THANK <span className="success-subtext">YOU<span className='success-mark'>!</span></span>
+            THANK{' '}
+            <span className="success-subtext">
+              YOU<span className="success-mark">!</span>
+            </span>
           </h2>
         </div>
       </div>
@@ -97,10 +104,20 @@ export default function Submit() {
   return (
     <div className="submit-container">
       {previewImage && (
-        <img src={previewImage} alt="Preview" className="preview-image" />
+        <img
+          src={previewImage}
+          alt="Preview"
+          className="preview-image"
+          onMouseEnter={() => dispatch(setCursorHover(true))}
+          onMouseLeave={() => dispatch(setCursorHover(false))}
+        />
       )}
       <form onSubmit={handleSubmit} className="submit-form">
-        <div className="photo-upload-container">
+        <div
+          className="photo-upload-container"
+          onMouseEnter={() => dispatch(setCursorHover(true))}
+          onMouseLeave={() => dispatch(setCursorHover(false))}
+        >
           <label className={`upload-button ${previewImage ? 'changed' : ''}`}>
             <div>
               <input
@@ -112,11 +129,12 @@ export default function Submit() {
             </div>
           </label>
 
-          {/* {previewImage && <PhotoCrop previewImage={previewImage} />} */}
         </div>
         <div className="type-container">
           <label
-            className={`type ${selectedTypes.includes('animal') ? 'selected' : ''} ${!isPhotoSelected ? 'disabled' : ''}`}
+            className={`type ${
+              selectedTypes.includes('animal') ? 'selected' : ''
+            } ${!isPhotoSelected ? 'disabled' : ''}`}
           >
             <input
               type="checkbox"
@@ -128,14 +146,22 @@ export default function Submit() {
             <div
               className={
                 selectedTypes.includes('animal')
-                  ? 'type-selector active-selector' : isPhotoSelected ?
-                    'type-selector' : 'disabled-selector type-selector'
+                  ? 'type-selector active-selector'
+                  : isPhotoSelected
+                  ? 'type-selector'
+                  : 'disabled-selector type-selector'
               }
+              onMouseEnter={() => dispatch(setCursorHover(true))}
+              onMouseLeave={() => dispatch(setCursorHover(false))}
             />
-            <h6 className={isPhotoSelected ? 'check-text' : 'disabled-text'}>animal</h6>
+            <h6 className={isPhotoSelected ? 'check-text' : 'disabled-text'}>
+              animal
+            </h6>
           </label>
           <label
-            className={`type ${selectedTypes.includes('food') ? 'selected' : ''} ${!isPhotoSelected ? 'disabled' : ''}`}
+            className={`type ${
+              selectedTypes.includes('food') ? 'selected' : ''
+            } ${!isPhotoSelected ? 'disabled' : ''}`}
           >
             <input
               type="checkbox"
@@ -147,14 +173,22 @@ export default function Submit() {
             <div
               className={
                 selectedTypes.includes('food')
-                  ? 'type-selector active-selector' : isPhotoSelected ?
-                    'type-selector' : 'disabled-selector type-selector'
+                  ? 'type-selector active-selector'
+                  : isPhotoSelected
+                  ? 'type-selector'
+                  : 'disabled-selector type-selector'
               }
+              onMouseEnter={() => dispatch(setCursorHover(true))}
+              onMouseLeave={() => dispatch(setCursorHover(false))}
             />
-            <h6 className={isPhotoSelected ? 'check-text' : 'disabled-text'}>food</h6>
+            <h6 className={isPhotoSelected ? 'check-text' : 'disabled-text'}>
+              food
+            </h6>
           </label>
           <label
-            className={`type ${selectedTypes.includes('lil-hat') ? 'selected' : ''} ${!isPhotoSelected ? 'disabled' : ''}`}
+            className={`type ${
+              selectedTypes.includes('lil-hat') ? 'selected' : ''
+            } ${!isPhotoSelected ? 'disabled' : ''}`}
           >
             <input
               type="checkbox"
@@ -166,15 +200,23 @@ export default function Submit() {
             <div
               className={
                 selectedTypes.includes('lil-hat')
-                  ? 'type-selector active-selector' : isPhotoSelected ?
-                    'type-selector' : 'disabled-selector type-selector'
+                  ? 'type-selector active-selector'
+                  : isPhotoSelected
+                  ? 'type-selector'
+                  : 'disabled-selector type-selector'
               }
+              onMouseEnter={() => dispatch(setCursorHover(true))}
+              onMouseLeave={() => dispatch(setCursorHover(false))}
             />
             <h6>lil hat</h6>
           </label>
         </div>
 
-        <div className={isPhotoSelected ? 'text-block' : 'text-block disabled'}>
+        <div
+          className={isPhotoSelected ? 'text-block' : 'text-block disabled'}
+          onMouseEnter={() => dispatch(setCursorHover(true))}
+          onMouseLeave={() => dispatch(setCursorHover(false))}
+        >
           <input
             type="text"
             name="locationDescription"
@@ -187,7 +229,11 @@ export default function Submit() {
           />
         </div>
 
-        <div className={isPhotoSelected ? 'text-block' : 'text-block disabled'}>
+        <div
+          className={isPhotoSelected ? 'text-block' : 'text-block disabled'}
+          onMouseEnter={() => dispatch(setCursorHover(true))}
+          onMouseLeave={() => dispatch(setCursorHover(false))}
+        >
           <input
             type="text"
             name="comments"
@@ -204,6 +250,8 @@ export default function Submit() {
           className="text-block submit-block"
           type="submit"
           disabled={!isPhotoSelected}
+          onMouseEnter={() => dispatch(setCursorHover(true))}
+          onMouseLeave={() => dispatch(setCursorHover(false))}
         >
           SUBMIT
         </button>

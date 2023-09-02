@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import { useParams, useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setCursorHover } from '../../features/cursorSlice'
 import './MascotBio.css'
 import * as mascotService from '../../utilities/mascot-service'
 
-export default function MascotBio({ setMascot, mascot, setCursorHover }) {
+export default function MascotBio({ setMascot, mascot }) {
+  const dispatch = useDispatch()
   const { id } = useParams()
   const location = useLocation()
 
@@ -29,8 +32,8 @@ export default function MascotBio({ setMascot, mascot, setCursorHover }) {
             src={mascot.imagePath}
             className="mascot-bio-photo"
             alt={mascot._id}
-            onMouseEnter={() => {setCursorHover(true)}}
-            onMouseLeave={() => {setCursorHover(false)}}
+            onMouseEnter={() => dispatch(setCursorHover(true))}
+            onMouseLeave={() => dispatch(setCursorHover(false))}
           />
           <div className="mascot-bio">
             <div className="mascot-bio-group">

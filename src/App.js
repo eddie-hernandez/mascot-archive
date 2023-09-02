@@ -10,19 +10,20 @@ import { getAdmin } from './utilities/admin-service'
 import PrivateRoute from './components/privateRoute'
 import Logo from './components/logo/Logo'
 import Navbar from './components/navbar/Navbar'
+import MascotBio from './components/mascotBio/MascotBio.js'
 import CustomCursor from './components/customCursor/CustomCursor'
 import CursorColorPicker from './components/cursorColorPicker/CursorColorPicker'
 
 // importing pages
+import Home from './pages/home/Home'
 import Animal from './pages/animal/Animal.js'
 import Food from './pages/food/Food.js'
 import Hat from './pages/hat/Hat.js'
 import Random from './pages/random/Random.js'
-import Home from './pages/home/Home'
 import Submit from './pages/submit/Submit'
+import About from './pages/about/About'
 import AdminDashboard from './pages/admin/adminDashboard/AdminDashboard'
 import AdminLogin from './pages/admin/adminLogin/AdminLogin'
-import MascotBio from './components/mascotBio/MascotBio.js'
 import { useLocation } from 'react-router-dom'
 import * as mascotService from './utilities/mascot-service'
 
@@ -30,7 +31,6 @@ export default function App() {
   const [admin, setAdmin] = useState(getAdmin())
   const [images, setImages] = useState([])
   const [mascot, setMascot] = useState(null)
-  const [cursorHover, setCursorHover] = useState(false)
   const [cursorColor, setCursorColor] = useState('')
   const location = useLocation()
 
@@ -98,86 +98,38 @@ export default function App() {
 
   return (
     <div className="App">
-      <CustomCursor cursorHover={cursorHover} cursorColor={cursorColor} />
+      <CustomCursor cursorColor={cursorColor} />
       <div className="mobile-header">
-        <Logo
-          handleLogoClick={handleLogoClick}
-          setCursorHover={setCursorHover}
-        />
+        <Logo handleLogoClick={handleLogoClick} />
       </div>
       <div className="mobile-nav">
-        <Navbar
-          setImages={setImages}
-          setMascot={setMascot}
-          setCursorHover={setCursorHover}
-        />
+        <Navbar setImages={setImages} setMascot={setMascot} />
       </div>
       <div className="desktop-header">
         <div className="blank" />
-        <CursorColorPicker
-          handleCursorColor={handleCursorColor}
-          setCursorHover={setCursorHover}
-        />
-        <Navbar
-          setImages={setImages}
-          setMascot={setMascot}
-          setCursorHover={setCursorHover}
-        />
-        <Logo
-          setCursorHover={setCursorHover}
-          handleLogoClick={handleLogoClick}
-        />
+        <CursorColorPicker handleCursorColor={handleCursorColor} />
+        <Navbar setImages={setImages} setMascot={setMascot} />
+        <Logo handleLogoClick={handleLogoClick} />
       </div>
       <Routes>
         {/* Establishing routes */}
         <Route
           path="/"
-          element={
-            <Home
-              images={images}
-              setImages={setImages}
-              setCursorHover={setCursorHover}
-            />
-          }
+          element={<Home images={images} setImages={setImages} />}
         />
         <Route
           path="/mascot/:id"
-          element={
-            <MascotBio
-              mascot={mascot}
-              setMascot={setMascot}
-              setCursorHover={setCursorHover}
-            />
-          }
+          element={<MascotBio mascot={mascot} setMascot={setMascot} />}
         />
-        <Route
-          path="/animal"
-          element={<Animal images={images} setCursorHover={setCursorHover} />}
-        />
-        <Route
-          path="/food"
-          element={<Food images={images} setCursorHover={setCursorHover} />}
-        />
-        <Route
-          path="/lil-hat"
-          element={<Hat images={images} setCursorHover={setCursorHover} />}
-        />
-        <Route
-          path="/random"
-          element={<Random mascot={mascot} setCursorHover={setCursorHover} />}
-        />
-        <Route
-          path="/submit"
-          element={<Submit setCursorHover={setCursorHover} />}
-        />
+        <Route path="/animal" element={<Animal images={images} />} />
+        <Route path="/food" element={<Food images={images} />} />
+        <Route path="/lil-hat" element={<Hat images={images} />} />
+        <Route path="/random" element={<Random mascot={mascot} />} />
+        <Route path="/submit" element={<Submit />} />
+        <Route path='/about' element={<About />} />
         <Route element={<PrivateRoute />}>
           <Route
-            element={
-              <AdminDashboard
-                setAdmin={setAdmin}
-                setCursorHover={setCursorHover}
-              />
-            }
+            element={<AdminDashboard setAdmin={setAdmin} />}
             path="/admin/dashboard"
             exact
           />

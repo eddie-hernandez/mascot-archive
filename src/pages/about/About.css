@@ -1,0 +1,23 @@
+.about-container {
+  margin-top: 5vh;
+}
+.about-hero {
+  width: 20vh;
+}
+
+.about-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 2vh;
+  margin: 4vh 25vw;
+}
+
+.about-text {
+  text-align: left;
+}
+
+.about-subtext {
+  color: blue;
+  text-decoration: none;
+}

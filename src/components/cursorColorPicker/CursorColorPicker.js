@@ -1,23 +1,23 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { setCursorHover } from '../../features/cursorSlice'
 import './CursorColorPicker.css'
-import shuffleIcon from '../../assets/icons/noun-switch-3476447.svg'
+import shuffleHero from '../../assets/hero/shuffle-hero.svg'
 
-export default function CursorColorPicker({
-  handleCursorColor,
-  setCursorHover,
-}) {
+export default function CursorColorPicker({ handleCursorColor }) {
+  const dispatch = useDispatch()
   return (
     <div
       className="cursor-color-picker"
       onClick={handleCursorColor}
       onMouseEnter={() => {
-        setCursorHover(true)
+        dispatch(setCursorHover(true))
       }}
       onMouseLeave={() => {
-        setCursorHover(false)
+        dispatch(setCursorHover(false))
       }}
     >
-      <img src={shuffleIcon} alt="cursor color shuffle icon" />
+      <img src={shuffleHero} alt="cursor color shuffle icon" />
     </div>
   )
 }

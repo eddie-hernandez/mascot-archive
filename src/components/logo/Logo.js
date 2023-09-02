@@ -1,22 +1,25 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useDispatch } from 'react-redux'
+import { setCursorHover } from '../../features/cursorSlice'
 import './Logo.css'
 
 // importing logo
 import logoInactive from '../../assets/logo/mascot-archive-logo-black.svg'
 import logoActive from '../../assets/logo/mascot-archive-logo-green.svg'
 
-export default function Logo({ setCursorHover, handleLogoClick }) {
+export default function Logo({ handleLogoClick }) {
+  const dispatch = useDispatch()
   const [isHovered, setIsHovered] = useState(false)
 
   function logoHoverOn() {
-    setCursorHover(true)
+    dispatch(setCursorHover(true))
     setIsHovered(true)
   }
 
   function logoHoverOff() {
-    setCursorHover(false)
+    dispatch(setCursorHover(false))
     setIsHovered(false)
   }
 

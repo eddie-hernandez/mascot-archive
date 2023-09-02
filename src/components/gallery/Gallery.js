@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useDispatch } from 'react-redux';
+import { setCursorHover } from '../../features/cursorSlice'
 import Photo from '../photo/Photo'
 import './Gallery.css'
 
-export default function Gallery({ images, setCursorHover }) {
+export default function Gallery({ images }) {
+  const dispatch = useDispatch()
   const imageWidth = 150
   const imageHeight = 150
   // Adjust value to control the spacing between images
@@ -54,8 +57,8 @@ export default function Gallery({ images, setCursorHover }) {
           <Link to={`/mascot/${image._id}`} key={image._id}>
             <motion.div
               className="photo-container"
-              onMouseEnter={() => setCursorHover(true)} 
-              onMouseLeave={() => setCursorHover(false)}
+              onMouseEnter={() => dispatch(setCursorHover(true))} 
+              onMouseLeave={() => dispatch(setCursorHover(false))}
             >
               <Photo image={image} alt={`Mascot ${index}`} style={imageStyle} />
             </motion.div>

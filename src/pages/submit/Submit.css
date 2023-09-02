@@ -113,6 +113,8 @@
 }
 
 .submit-block {
+  display: flex;
+  justify-content: center;
   width: 50vw;
   align-self: center;
   background: none;

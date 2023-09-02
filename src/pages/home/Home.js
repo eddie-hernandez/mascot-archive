@@ -3,7 +3,7 @@ import './Home.css'
 import * as mascotService from '../../utilities/mascot-service'
 import Gallery from '../../components/gallery/Gallery'
 
-export default function Home({ images, setImages, setCursorHover }) {
+export default function Home({ images, setImages }) {
 
   useEffect(() => {
     mascotService
@@ -18,7 +18,7 @@ export default function Home({ images, setImages, setCursorHover }) {
 
   return (
     <>
-      <Gallery images={images} setCursorHover={setCursorHover} />
+      <Gallery images={images} />
     </>
   )
 }

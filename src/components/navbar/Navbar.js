@@ -1,17 +1,20 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setCursorHover } from '../../features/cursorSlice'
 import './Navbar.css'
 import * as mascotService from '../../utilities/mascot-service'
 
-export default function Navbar({ setImages, setMascot, setCursorHover }) {
+export default function Navbar({ setImages, setMascot }) {
+  const dispatch = useDispatch()
   function handleTypeClick(type) {
     try {
       setMascot(null)
       setImages([])
 
       mascotService.indexMascotsByType(type).then((mascots) => {
-        setImages(mascots);
-      });
+        setImages(mascots)
+      })
     } catch (error) {
       console.error('Error fetching mascots:', error)
     }
@@ -38,8 +41,8 @@ export default function Navbar({ setImages, setMascot, setCursorHover }) {
           isActive ? 'active-link navbar-link' : 'navbar-link'
         }
         onClick={() => handleTypeClick('animal')}
-        onMouseEnter={() => setCursorHover(true)}
-        onMouseLeave={() => setCursorHover(false)}
+        onMouseEnter={() => dispatch(setCursorHover(true))}
+        onMouseLeave={() => dispatch(setCursorHover(false))}
       >
         <div className="link-container">
           <h5 className="link-text">animal</h5>
@@ -52,8 +55,8 @@ export default function Navbar({ setImages, setMascot, setCursorHover }) {
           isActive ? 'active-link navbar-link' : 'navbar-link'
         }
         onClick={() => handleTypeClick('food')}
-        onMouseEnter={() => setCursorHover(true)}
-        onMouseLeave={() => setCursorHover(false)}
+        onMouseEnter={() => dispatch(setCursorHover(true))}
+        onMouseLeave={() => dispatch(setCursorHover(false))}
       >
         <div className="link-container">
           <h5 className="link-text">food</h5>
@@ -66,8 +69,8 @@ export default function Navbar({ setImages, setMascot, setCursorHover }) {
           isActive ? 'active-link navbar-link' : 'navbar-link'
         }
         onClick={() => handleTypeClick('lil-hat')}
-        onMouseEnter={() => setCursorHover(true)}
-        onMouseLeave={() => setCursorHover(false)}
+        onMouseEnter={() => dispatch(setCursorHover(true))}
+        onMouseLeave={() => dispatch(setCursorHover(false))}
       >
         <div className="link-container">
           <h5 className="link-text">lil hat</h5>
@@ -80,8 +83,8 @@ export default function Navbar({ setImages, setMascot, setCursorHover }) {
           isActive ? 'active-link navbar-link' : 'navbar-link'
         }
         onClick={handleRandomClick}
-        onMouseEnter={() => setCursorHover(true)}
-        onMouseLeave={() => setCursorHover(false)}
+        onMouseEnter={() => dispatch(setCursorHover(true))}
+        onMouseLeave={() => dispatch(setCursorHover(false))}
       >
         <div className="link-container">
           <h5 className="link-text">random</h5>
@@ -97,11 +100,24 @@ export default function Navbar({ setImages, setMascot, setCursorHover }) {
           setMascot(null)
           setImages([])
         }}
-        onMouseEnter={() => setCursorHover(true)}
-        onMouseLeave={() => setCursorHover(false)}
+        onMouseEnter={() => dispatch(setCursorHover(true))}
+        onMouseLeave={() => dispatch(setCursorHover(false))}
       >
         <div className="link-container">
           <h5 className="link-text">submit</h5>
+          <div className="active-dot" />
+        </div>
+      </NavLink>
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          isActive ? 'active-link navbar-link' : 'navbar-link'
+        }
+        onMouseEnter={() => dispatch(setCursorHover(true))}
+        onMouseLeave={() => dispatch(setCursorHover(false))}
+      >
+        <div className="link-container">
+          <h5 className="link-text">about</h5>
           <div className="active-dot" />
         </div>
       </NavLink>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import * as adminService from '../../../utilities/admin-service'
 import { useDispatch } from 'react-redux'
+import { setCursorHover } from '../../../features/cursorSlice'
 import { logout } from '../../../features/authSlice'
 import { logOut } from '../../../utilities/admin-service'
 import { useNavigate } from 'react-router-dom'
@@ -11,7 +12,7 @@ import {
 } from '../../../components/admin/adminGallery/AdminGallery'
 import './AdminDashboard.css'
 
-export default function AdminDashboard({ setAdmin, setCursorHover }) {
+export default function AdminDashboard({ setAdmin }) {
   const [pendingSubs, setPendingSubs] = useState([])
   const [approvedSubs, setApprovedSubs] = useState([])
   const [deniedSubs, setDeniedSubs] = useState([])
@@ -93,10 +94,7 @@ export default function AdminDashboard({ setAdmin, setCursorHover }) {
     <div className="admin-dashboard">
       <div className="admin-dashboard-header">
         <h5>Admin Dashboard</h5>
-        <button
-          onClick={handleLogOut}
-          className="styledbtn"
-        >
+        <button onClick={handleLogOut} className="styledbtn">
           Admin Logout
         </button>
       </div>
@@ -105,8 +103,8 @@ export default function AdminDashboard({ setAdmin, setCursorHover }) {
           <h5
             className={showPending ? 'dropdown active-dropdown' : 'dropdown'}
             onClick={() => setShowPending(!showPending)}
-            onMouseEnter={() => setCursorHover(true)}
-            onMouseLeave={() => setCursorHover(false)}
+            onMouseEnter={() => dispatch(setCursorHover(true))}
+            onMouseLeave={() => dispatch(setCursorHover(false))}
           >
             Pending ({pendingSubs.length})
           </h5>
@@ -114,7 +112,6 @@ export default function AdminDashboard({ setAdmin, setCursorHover }) {
             <PendingGallery
               pendingSubs={pendingSubs}
               handleSort={handleSort}
-              setCursorHover={setCursorHover}
             />
           )}
         </div>
@@ -122,8 +119,8 @@ export default function AdminDashboard({ setAdmin, setCursorHover }) {
           <h5
             className={showApproved ? 'dropdown active-dropdown' : 'dropdown'}
             onClick={() => setShowApproved(!showApproved)}
-            onMouseEnter={() => setCursorHover(true)}
-            onMouseLeave={() => setCursorHover(false)}
+            onMouseEnter={() => dispatch(setCursorHover(true))}
+            onMouseLeave={() => dispatch(setCursorHover(false))}
           >
             Approved ({approvedSubs.length})
           </h5>
@@ -133,8 +130,8 @@ export default function AdminDashboard({ setAdmin, setCursorHover }) {
           <h5
             className={showDenied ? 'dropdown active-dropdown' : 'dropdown'}
             onClick={() => setShowDenied(!showDenied)}
-            onMouseEnter={() => setCursorHover(true)}
-            onMouseLeave={() => setCursorHover(false)}
+            onMouseEnter={() => dispatch(setCursorHover(true))}
+            onMouseLeave={() => dispatch(setCursorHover(false))}
           >
             Denied ({deniedSubs.length})
           </h5>
