@@ -191,7 +191,7 @@
   cursor: not-allowed;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1001px) {
   .submit-container {
     flex-direction: row;
     margin-top: 0vh;

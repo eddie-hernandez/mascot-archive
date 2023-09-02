@@ -3,7 +3,7 @@
   src: url('./fonts/rocgrotesk-black.otf') format('opentype');
 }
 
-html, body, #root, .app {
+html, body, #root, .App {
   height: 100%;
 }
 

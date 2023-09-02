@@ -14,7 +14,7 @@ async function trackSubmissions(req, res, next) {
 
     // check if user has already exceeded the submission quota
     if (submissionCount.count >= 5) {
-      return res.status(429).json({ message: 'Submission limit exceeded' });
+      return res.status(429).json({ error: 'Submission limit exceeded. You can submit a maximum of 5 photos per hour.' });
     }
 
     // increment submission count and save it

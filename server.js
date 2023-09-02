@@ -19,11 +19,13 @@ app.use(require('./server/config/verifyToken'))
 
 // middleware to rate the limit of api hits for photo submissions
 const submissionRateLimiter = rateLimit({
-  // gives users a 1 hr window
+  // gives users a 1 hr limit window
   windowMs: 60 * 60 * 1000,
   // max 5 submissions / api hits an hour for photo submissions
   max: 5,
-  message: 'Too many submissions from this IP, please try again later.'
+  message: 'Too many submissions from this IP, please try again later.',
+  // skip rate limiting for requests with X-Forwarded-For header (for local development)
+  skip: (req) => req.headers['x-forwarded-for'] !== undefined
 });
 
 // double middleware to track user's submissions based on IP address

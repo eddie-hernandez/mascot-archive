@@ -1,0 +1,35 @@
+@media screen and (max-width: 1000px) {
+  .mobile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+  .mobile-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .desktop-header {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .mobile-header {
+    display: none;
+  }
+  .mobile-nav {
+    display: none;
+  }
+  .desktop-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .blank {
+    flex-grow: 0.25;
+  }
+}

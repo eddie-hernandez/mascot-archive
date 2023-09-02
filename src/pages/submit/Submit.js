@@ -32,7 +32,10 @@ export default function Submit() {
     try {
       console.log(formData)
       const response = await submitNewPhoto(formData)
-      console.log('Response status:', response.message)
+
+      if (response.status === 429) {
+        setMessage('Too many submissions, please try again later.');
+      }
 
       if (response.message) {
         setMessage('Thanks! Your submission has been received.')

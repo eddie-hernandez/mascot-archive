@@ -8,7 +8,8 @@ import { getAdmin } from './utilities/admin-service'
 
 // importing components
 import PrivateRoute from './components/privateRoute'
-import Header from './components/header/Header'
+import Logo from './components/logo/Logo'
+import Navbar from './components/navbar/Navbar'
 
 // importing pages
 import Animal from './pages/animal/Animal.js'
@@ -37,12 +38,12 @@ export default function App() {
 
   function handleMascotArchiveClick() {
     if (location.pathname !== '/') {
-      return;
+      return
     } else {
       // Shuffle the existing images without making another API call
-      const newShuffledImages = [...images];
-      newShuffledImages.sort(() => Math.random() - 0.5);
-      setImages(newShuffledImages);
+      const newShuffledImages = [...images]
+      newShuffledImages.sort(() => Math.random() - 0.5)
+      setImages(newShuffledImages)
     }
   }
 
@@ -52,39 +53,45 @@ export default function App() {
       mascotService
         .indexRandomMascot()
         .then((data) => {
-          setMascot(data);
+          setMascot(data)
         })
         .catch((error) => {
-          console.error('Error fetching random mascot:', error);
-        });
-    }
-    else if (location.pathname === '/animal' || location.pathname === '/food' || location.pathname === '/lil-hat') {
-      mascotService.indexMascotsByType(typeLocation).then((mascots) => {
-        setImages(mascots);
-      })
+          console.error('Error fetching random mascot:', error)
+        })
+    } else if (
+      location.pathname === '/animal' ||
+      location.pathname === '/food' ||
+      location.pathname === '/lil-hat'
+    ) {
+      mascotService
+        .indexMascotsByType(typeLocation)
+        .then((mascots) => {
+          setImages(mascots)
+        })
         .catch((error) => {
           console.error('Error fetching mascots:', error)
         })
     }
-  }, [location.pathname, typeLocation]);
+  }, [location.pathname, typeLocation])
 
   return (
     <div className="App">
-      <Header
-        setImages={setImages}
-        setMascot={setMascot}
-        handleMascotArchiveClick={handleMascotArchiveClick}
-      />
+      <div className="mobile-header">
+        <Logo />
+      </div>
+      <div className='mobile-nav'>
+        <Navbar setImages={setImages} setMascot={setMascot} />
+      </div>
+      <div className="desktop-header">
+        <div className='blank' />
+        <Navbar setImages={setImages} setMascot={setMascot} />
+        <Logo />
+      </div>
       <Routes>
         {/* Establishing routes */}
         <Route
           path="/"
-          element={
-            <Home
-              images={images}
-              setImages={setImages}
-            />
-          }
+          element={<Home images={images} setImages={setImages} />}
         />
         <Route
           path="/mascot/:id"
