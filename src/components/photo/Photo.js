@@ -1,7 +1,7 @@
 import React from 'react'
 import './Photo.css'
 
-export default function Photo({ image, style }) {
+export default function Photo({ image, style, setCursorHover }) {
   return (
     <img
       className="mascot-photo"

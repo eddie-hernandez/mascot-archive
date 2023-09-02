@@ -1,7 +1,7 @@
 import React from 'react'
 import './AdminGallery.css'
 
-export function PendingGallery({ pendingSubs, handleSort }) {
+export function PendingGallery({ pendingSubs, handleSort, setCursorHover }) {
   return (
     <div className="gallery">
       {pendingSubs.map((submission) => (
@@ -18,12 +18,16 @@ export function PendingGallery({ pendingSubs, handleSort }) {
             <button
               className="styledbtn"
               onClick={() => handleSort(submission._id, true)}
+              onMouseEnter={() => setCursorHover(true)} 
+              onMouseLeave={() => setCursorHover(false)}
             >
               Approve
             </button>
             <button
               className="styledbtn"
               onClick={() => handleSort(submission._id, false)}
+              onMouseEnter={() => setCursorHover(true)} 
+              onMouseLeave={() => setCursorHover(false)}
             >
               Deny
             </button>
@@ -34,7 +38,7 @@ export function PendingGallery({ pendingSubs, handleSort }) {
   )
 }
 
-export function ApprovedGallery({ approvedSubs }) {
+export function ApprovedGallery({ approvedSubs, setCursorHover }) {
   return (
     <div className="gallery">
       {approvedSubs.map((submission) => (
@@ -53,7 +57,7 @@ export function ApprovedGallery({ approvedSubs }) {
   )
 }
 
-export function DeniedGallery({ deniedSubs }) {
+export function DeniedGallery({ deniedSubs, setCursorHover }) {
   return (
     <div className="gallery">
       {deniedSubs.map((submission) => (

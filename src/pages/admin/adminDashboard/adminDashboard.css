@@ -15,7 +15,6 @@
 }
 
 .dropdown {
-  cursor: pointer;
   text-align: left;
 }
 
@@ -33,7 +32,6 @@ color: red;
   border-radius: 10px;
   background: none;
   font-size: 2vh;
-  cursor: pointer;
 }
 
 .styledbtn:hover {

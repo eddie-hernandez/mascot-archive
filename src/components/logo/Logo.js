@@ -1,25 +1,37 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import './Logo.css'
 
 // importing logo
 import logoInactive from '../../assets/logo/mascot-archive-logo-black.svg'
 import logoActive from '../../assets/logo/mascot-archive-logo-green.svg'
 
-export default function Logo() {
+export default function Logo({ setCursorHover, handleLogoClick }) {
   const [isHovered, setIsHovered] = useState(false)
 
+  function logoHoverOn() {
+    setCursorHover(true)
+    setIsHovered(true)
+  }
+
+  function logoHoverOff() {
+    setCursorHover(false)
+    setIsHovered(false)
+  }
+
   return (
-    <div className="logo-container">
+    <motion.div className="logo-container">
       <Link to="/">
         <img
           className="logo"
           src={isHovered ? logoActive : logoInactive}
           alt="mascot archive logo"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={logoHoverOn}
+          onMouseLeave={logoHoverOff}
+          onClick={handleLogoClick}
         />
       </Link>
-    </div>
+    </motion.div>
   )
 }

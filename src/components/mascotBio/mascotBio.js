@@ -3,7 +3,7 @@ import { useParams, useLocation } from 'react-router-dom'
 import './MascotBio.css'
 import * as mascotService from '../../utilities/mascot-service'
 
-export default function MascotBio({ setMascot, mascot }) {
+export default function MascotBio({ setMascot, mascot, setCursorHover }) {
   const { id } = useParams()
   const location = useLocation()
 
@@ -29,6 +29,8 @@ export default function MascotBio({ setMascot, mascot }) {
             src={mascot.imagePath}
             className="mascot-bio-photo"
             alt={mascot._id}
+            onMouseEnter={() => {setCursorHover(true)}}
+            onMouseLeave={() => {setCursorHover(false)}}
           />
           <div className="mascot-bio">
             <div className="mascot-bio-group">

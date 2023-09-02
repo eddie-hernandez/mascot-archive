@@ -73,7 +73,6 @@
   padding: 1.5vh 2vh;
   border: 2px solid gray;
   border-radius: 10px;
-  cursor: pointer;
   width: 100%;
   text-align: left;
 }
@@ -114,15 +113,10 @@
   color: gray;
 }
 
-.text-block input[type='text']:disabled {
-  cursor: not-allowed;
-}
-
 .submit-block {
   width: 50vw;
   align-self: center;
   background: none;
-  cursor: pointer;
 }
 
 .submit-block:hover {
@@ -131,7 +125,6 @@
 }
 
 .submit-block:disabled {
-  cursor: not-allowed;
   font-size: 1.75vh;
   align-items: center;
 }
@@ -162,7 +155,6 @@
   display: flex;
   align-items: center;
   column-gap: 2vh;
-  cursor: pointer;
 }
 
 .type.disabled {
@@ -174,21 +166,15 @@
   height: 2vh;
   border-radius: 50px;
   border: 2px solid gray;
-  cursor: pointer;
 }
 
 .disabled-selector {
   background-color: #e4e3de;
   border-color: #c1c0bd;
-  cursor: not-allowed;
 }
 
 .active-selector {
   background-color: #20e700;
-}
-
-.disabled {
-  cursor: not-allowed;
 }
 
 @media screen and (min-width: 1001px) {
