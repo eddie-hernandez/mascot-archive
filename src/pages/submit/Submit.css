@@ -84,7 +84,6 @@
 
 .text-block {
   display: flex;
-  flex-direction: column;
   padding: 1.5vh 2vh;
   border: 2px solid gray;
   border-radius: 10px;
