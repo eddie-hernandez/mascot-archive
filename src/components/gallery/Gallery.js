@@ -40,8 +40,9 @@ export default function Gallery({ images, setCursorHover }) {
 
   return (
     <div className="gallery-container">
+      {/* map thru images to compare with placedImages array */}
       {images.map((image, index) => {
-        // Check if placedImages[index] is defined before accessing its properties
+        // check if placedImages[index] is defined before accessing its properties
         const imageStyle = placedImages[index]
           ? {
               left: `${placedImages[index].x}px`,

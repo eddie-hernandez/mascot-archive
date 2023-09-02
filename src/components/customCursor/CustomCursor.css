@@ -15,8 +15,7 @@
   /* background-color: #00FF00; */
   /* background-color: #FF00FF; */
 
-  background-color: #39FF14;
-  border: 1.5px solid tan;
+  /* border: 1.5px solid tan; */
   border-radius: 50%;
   transform: translate(-50%, -50%);
   /* ensures cursor doesn't interfere with other elements */

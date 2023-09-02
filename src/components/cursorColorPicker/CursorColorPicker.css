@@ -1,0 +1,7 @@
+.cursor-color-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3vh;
+  height: 100%;
+}

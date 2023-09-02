@@ -11,6 +11,7 @@ import PrivateRoute from './components/privateRoute'
 import Logo from './components/logo/Logo'
 import Navbar from './components/navbar/Navbar'
 import CustomCursor from './components/customCursor/CustomCursor'
+import CursorColorPicker from './components/cursorColorPicker/CursorColorPicker'
 
 // importing pages
 import Animal from './pages/animal/Animal.js'
@@ -30,6 +31,7 @@ export default function App() {
   const [images, setImages] = useState([])
   const [mascot, setMascot] = useState(null)
   const [cursorHover, setCursorHover] = useState(false)
+  const [cursorColor, setCursorColor] = useState('')
   const location = useLocation()
 
   const typeLocation = location.pathname.slice(1)
@@ -76,9 +78,27 @@ export default function App() {
       })
   }
 
+  function handleCursorColor() {
+    const cursorColors = [
+      '#00a8dd',
+      '#ff5722',
+      '#39FF14',
+      '#00FFFF',
+      '#ffa500',
+      '#ff00ff',
+      '#e6e6fa',
+      '#FFFFF0',
+      '#00FF00',
+    ]
+
+    const randomCursorColor = Math.floor(Math.random() * cursorColors.length)
+
+    setCursorColor(cursorColors[randomCursorColor])
+  }
+
   return (
     <div className="App">
-      <CustomCursor cursorHover={cursorHover} />
+      <CustomCursor cursorHover={cursorHover} cursorColor={cursorColor} />
       <div className="mobile-header">
         <Logo handleLogoClick={handleLogoClick} />
       </div>
@@ -87,12 +107,16 @@ export default function App() {
       </div>
       <div className="desktop-header">
         <div className="blank" />
+        <CursorColorPicker handleCursorColor={handleCursorColor} setCursorHover={setCursorHover} />
         <Navbar
           setImages={setImages}
           setMascot={setMascot}
           setCursorHover={setCursorHover}
         />
-        <Logo setCursorHover={setCursorHover} handleLogoClick={handleLogoClick} />
+        <Logo
+          setCursorHover={setCursorHover}
+          handleLogoClick={handleLogoClick}
+        />
       </div>
       <Routes>
         {/* Establishing routes */}
@@ -108,7 +132,13 @@ export default function App() {
         />
         <Route
           path="/mascot/:id"
-          element={<MascotBio mascot={mascot} setMascot={setMascot} setCursorHover={setCursorHover} />}
+          element={
+            <MascotBio
+              mascot={mascot}
+              setMascot={setMascot}
+              setCursorHover={setCursorHover}
+            />
+          }
         />
         <Route
           path="/animal"
@@ -122,7 +152,10 @@ export default function App() {
           path="/lil-hat"
           element={<Hat images={images} setCursorHover={setCursorHover} />}
         />
-        <Route path="/random" element={<Random mascot={mascot} setCursorHover={setCursorHover} />} />
+        <Route
+          path="/random"
+          element={<Random mascot={mascot} setCursorHover={setCursorHover} />}
+        />
         <Route
           path="/submit"
           element={<Submit setCursorHover={setCursorHover} />}
@@ -141,9 +174,7 @@ export default function App() {
         </Route>
         <Route
           path="/admin/login"
-          element={
-            <AdminLogin setAdmin={setAdmin} />
-          }
+          element={<AdminLogin setAdmin={setAdmin} />}
         />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>

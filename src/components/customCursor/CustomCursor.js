@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import './CustomCursor.css'
 
-export default function CustomCursor({ cursorHover }) {
+export default function CustomCursor({ cursorHover, cursorColor }) {
+
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
@@ -27,6 +28,7 @@ export default function CustomCursor({ cursorHover }) {
     <motion.div
       className={`custom-cursor ${cursorHover ? 'hover' : ''}`}
       style={{
+        backgroundColor: cursorColor ? cursorColor : '#C600EB',
         translateX: cursorXSpring,
         translateY: cursorYSpring,
         scale: cursorHover ? 3 : 1,
