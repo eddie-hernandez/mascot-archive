@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import * as adminService from '../../../utilities/admin-service'
 import { useDispatch } from 'react-redux'
 import { login } from '../../../features/authSlice'
+import './AdminLogin.css'
 
 export default function AdminLogin({ setAdmin }) {
   const [credentials, setCredentials] = useState({
@@ -33,26 +34,32 @@ export default function AdminLogin({ setAdmin }) {
   }
 
   return (
-    <div>
-      <h2>Admin Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={credentials.username}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={credentials.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Login</button>
+    <div className="admin-login-container">
+      <h3 style={{ fontWeight: 'bold' }}>admin login</h3>
+      <form onSubmit={handleSubmit} className="admin-login-form">
+        <div className="admin-credential-container">
+          <input
+            type="text"
+            name="username"
+            placeholder="username"
+            value={credentials.username}
+            onChange={handleChange}
+            required
+            className="admin-input"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            value={credentials.password}
+            onChange={handleChange}
+            required
+            className="admin-input"
+          />
+        </div>
+        <button type="submit" className="admin-submit">
+          login
+        </button>
       </form>
       {error && <p>{error}</p>}
     </div>

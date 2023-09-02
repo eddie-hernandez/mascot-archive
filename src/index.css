@@ -68,6 +68,10 @@ button:hover {
   border-color: gray;
 }
 
+:focus-visible {
+  outline: 2px solid rgb(171, 171, 212);
+}
+
 
 @media screen and (max-width: 900px) {
   h1 {
