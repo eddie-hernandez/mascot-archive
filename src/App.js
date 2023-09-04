@@ -82,12 +82,13 @@ export default function App() {
   function handleCursorColor() {
     const cursorColors = [
       '#00a8dd', // orange
-      '#00FFFF', // deep red
-      '#ff5722', // sea blue
-      '#ffa500', // dark blue
+      '#FFD700', // dark blue
+      '#0013FF', // yellow
       '#FFFFFF', // black
       '#84765E', // gray
-      '#0013FF', // yellow
+      '#ff5722', // sea blue
+      '#00FFFF', // deep red
+      '#FF69B4', // dark green
       '#20E700', // magenta
     ]
 
