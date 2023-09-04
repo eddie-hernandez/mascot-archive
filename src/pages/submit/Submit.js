@@ -117,7 +117,7 @@ export default function Submit() {
               <input
                 type="file"
                 name="photo"
-                accept="image/*"
+                accept=".jpg, .jpeg, .png"
                 onChange={handleFileChange}
               />
             </div>
