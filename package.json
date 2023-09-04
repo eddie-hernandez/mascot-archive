@@ -41,8 +41,7 @@
     "react-scripts": "5.0.1"
   },
   "engines": {
-    "node": "v20.5.1",
-    "npm": "9.8.1"
+    "node": "v20.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
