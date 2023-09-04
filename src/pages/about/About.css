@@ -1,6 +1,7 @@
 .about-container {
-  margin-top: 5vh;
+  margin-top: 8vh;
 }
+
 .about-hero {
   width: 20vh;
 }
@@ -10,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   row-gap: 2vh;
-  margin: 4vh 33vw;
+  margin: 4vh 10vw;
 }
 
 .about-text {
@@ -20,4 +21,14 @@
 .about-subtext {
   color: blue;
   text-decoration: none;
+}
+
+@media screen and (min-width: 1001px) {
+  .about-container {
+    margin-top: 5vh;
+  }
+
+  .about-text-container {
+    margin: 4vh 33vw;
+  }
 }
