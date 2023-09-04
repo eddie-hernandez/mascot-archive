@@ -12,13 +12,13 @@ export default function About() {
     <div className="about-container">
       <img src={aboutHero} alt="about section hero" className="about-hero" />
       <div className="about-text-container">
-        <h5 className="about-text">
+        <h6 className="about-text">
           When we’re out and about in the world, we’ve always been enchanted
           with the little characters, faces and mascots we spot in the wild.
           We’ve been collecting photos of them for years now, and made this as a
           place to archive, organize, and just enjoy them :^)
-        </h5>
-        <h5 className="about-text">
+        </h6>
+        <h6 className="about-text">
           If you’ve got a photo to add to the archive, we’d love to see it! Use
           the{' '}
           <span
@@ -30,9 +30,9 @@ export default function About() {
             ‘submit’
           </span>{' '}
           tab to upload your png or jpg and jot down a couple notes about it.{' '}
-        </h5>
-        <h5 className="about-text">
-          'This website was designed by{' '}
+        </h6>
+        <h6 className="about-text">
+          This website was designed by{' '}
           <a
             href="https://bethanyrennard.com"
             target="_blank"
@@ -41,7 +41,7 @@ export default function About() {
             onMouseEnter={() => dispatch(setCursorHover(true))}
             onMouseLeave={() => dispatch(setCursorHover(false))}
           >
-            Bethany Rennard
+            Bethany Rennard<br />
           </a>{' '}
           and developed by{' '}
           <a
@@ -55,7 +55,7 @@ export default function About() {
             Eddie Hernandez
           </a>
           .
-        </h5>
+        </h6>
       </div>
     </div>
   )

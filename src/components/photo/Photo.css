@@ -1,6 +1,6 @@
 .mascot-photo {
-  width: 15vh;
-  height: 15vh;
+  width: 10vh;
+  height: 10vh;
   transition: filter 0.2s;
   position: absolute;
 }
@@ -8,4 +8,11 @@
 .mascot-photo:hover {
   border-radius: 120px;
   filter: brightness(1.1);
+}
+
+@media screen and (min-width: 1001px) {
+  .mascot-photo {
+    width: 15vh;
+    height: 15vh;
+  }
 }

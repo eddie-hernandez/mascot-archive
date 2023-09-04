@@ -3,7 +3,10 @@
   src: url('./fonts/rocgrotesk-black.otf') format('opentype');
 }
 
-html, body, #root, .App {
+html,
+body,
+#root,
+.App {
   height: 100%;
 }
 
@@ -13,7 +16,7 @@ body {
   font-family: 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F2EEE6;
+  background-color: #f2eee6;
   text-align: center;
 }
 
@@ -25,7 +28,7 @@ code {
 * {
   margin-block-end: 0px;
   margin-block-start: 0px;
-  cursor: none;
+  cursor: auto;
 }
 
 * {
@@ -72,33 +75,38 @@ button:hover {
   outline: 2px solid rgb(171, 171, 212);
 }
 
-
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   h1 {
     font-size: 16vw;
   }
-  
+
   h2 {
     font-size: 12vw;
   }
-  
+
   h3 {
     font-size: 10vw;
   }
-  
+
   h4 {
     font-size: 8vw;
   }
-  
+
   h5 {
     font-size: 6vw;
   }
-  
+
   h6 {
     font-size: 4vw;
   }
-  
+
   p {
     font-size: 3vw;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  * {
+    cursor: none;
   }
 }

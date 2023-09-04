@@ -9,11 +9,11 @@ const submissionSchema = new Schema(
     },
     types: [{
       type: String,
-      required: true,
+      required: false,
     }],
     locationDescription: {
       type: String,
-      required: true,
+      required: false,
     },
     comments: {
       type: String,

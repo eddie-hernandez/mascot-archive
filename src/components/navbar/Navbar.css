@@ -12,6 +12,10 @@
   text-decoration: none;
 }
 
+.link-text {
+  font-size: 2.5vh;
+}
+
 .link-text:hover {
   color: rgb(0, 0, 255);
 }
@@ -36,8 +40,9 @@
   display: none;
 }
 
-.active-link .active-dot {
+.active-link .link-text {
   display: block;
+  color: blue;
 }
 
 @media screen and (min-width: 1001px) {
@@ -46,5 +51,12 @@
     justify-content: center;
     align-items: center;
     column-gap: 5vw;
+  }
+  .active-link .active-dot {
+    display: block;
+  }
+
+  .active-link .link-text {
+    color: black;
   }
 }

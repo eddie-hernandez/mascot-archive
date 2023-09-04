@@ -6,6 +6,7 @@ import Gallery from '../../components/gallery/Gallery'
 export default function Home({ images, setImages }) {
 
   useEffect(() => {
+    console.log('this one worked')
     mascotService
       .indexApprovedMascots()
       .then((data) => {

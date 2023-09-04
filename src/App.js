@@ -31,7 +31,7 @@ export default function App() {
   const [admin, setAdmin] = useState(getAdmin())
   const [images, setImages] = useState([])
   const [mascot, setMascot] = useState(null)
-  const [cursorColor, setCursorColor] = useState('')
+  const [cursorColor, setCursorColor] = useState('#C600EB')
   const location = useLocation()
 
   const typeLocation = location.pathname.slice(1)
@@ -72,6 +72,7 @@ export default function App() {
       .indexApprovedMascots()
       .then((data) => {
         setImages(data)
+        window.scrollTo(0, 0)
       })
       .catch((error) => {
         console.error('Error fetching mascots', error)
@@ -80,20 +81,33 @@ export default function App() {
 
   function handleCursorColor() {
     const cursorColors = [
-      '#00a8dd',
-      '#ff5722',
-      '#39FF14',
-      '#00FFFF',
-      '#ffa500',
-      '#ff00ff',
-      '#e6e6fa',
-      '#FFFFF0',
-      '#00FF00',
+      '#00a8dd', // orange
+      '#00FFFF', // deep red
+      '#ff5722', // sea blue
+      '#ffa500', // dark blue
+      '#FFFFFF', // black
+      '#84765E', // gray
+      '#0013FF', // yellow
+      '#20E700', // magenta
     ]
 
-    const randomCursorColor = Math.floor(Math.random() * cursorColors.length)
+    // const randomCursorColor = Math.floor(Math.random() * cursorColors.length)
+    // setCursorColor(cursorColors[randomCursorColor])
 
-    setCursorColor(cursorColors[randomCursorColor])
+    // find current cursorColor index
+    const currentIndex = cursorColors.findIndex(
+      (color) => color === cursorColor
+    )
+
+    // Calculate next index
+    const nextIndex = (currentIndex + 1) % cursorColors.length
+
+    // Set cursor color to the next color
+    setCursorColor(cursorColors[nextIndex])
+
+    if (cursorColors[currentIndex] === '#20E700') {
+      setCursorColor('#C600EB')
+    }
   }
 
   return (
@@ -126,7 +140,7 @@ export default function App() {
         <Route path="/lil-hat" element={<Hat images={images} />} />
         <Route path="/random" element={<Random mascot={mascot} />} />
         <Route path="/submit" element={<Submit />} />
-        <Route path='/about' element={<About />} />
+        <Route path="/about" element={<About />} />
         <Route element={<PrivateRoute />}>
           <Route
             element={<AdminDashboard setAdmin={setAdmin} />}

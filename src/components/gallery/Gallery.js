@@ -1,32 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { useDispatch } from 'react-redux';
-import { setCursorHover } from '../../features/cursorSlice'
 import Photo from '../photo/Photo'
 import './Gallery.css'
 
 export default function Gallery({ images }) {
-  const dispatch = useDispatch()
   const imageWidth = 150
   const imageHeight = 150
-  // Adjust value to control the spacing between images
+  // adjust value to control the spacing between images
   const margin = 20
 
   const [placedImages, setPlacedImages] = useState([])
 
   useEffect(() => {
     // Check if placedImages is empty and resetPlacement is true to re-randomize positions
-
     const maxX = window.innerWidth - imageWidth
     const maxY = window.innerHeight - imageHeight
+    const initialY = margin // Initial vertical position
+    let currentY = initialY // Current vertical position
 
     const newPlacedImages = []
     images.forEach((image) => {
       let newRandomX, newRandomY
       do {
         newRandomX = Math.random() * (maxX - imageWidth - margin) + margin
-        newRandomY = Math.random() * (maxY - imageHeight - margin) + margin
+        newRandomY = currentY // Use the currentY value for vertical position
       } while (
         newPlacedImages.some(
           ({ x, y }) =>
@@ -36,10 +33,27 @@ export default function Gallery({ images }) {
       )
 
       newPlacedImages.push({ x: newRandomX, y: newRandomY })
+
+      // Increment the currentY value to space images vertically
+      currentY += imageHeight + margin
     })
 
     setPlacedImages(newPlacedImages)
   }, [images])
+
+  // REGUALAR POSITIONS
+  //   return (
+  //     <div className="gallery-container">
+  //       {images.map((image, index) => {
+  //         return (
+  //           <Link to={`mascot/${image._id}`} key={image._id}>
+  //             <Photo image={image} alt={`Mascot ${index}`} />
+  //           </Link>
+  //         )
+  //       })}
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className="gallery-container">
@@ -55,13 +69,7 @@ export default function Gallery({ images }) {
 
         return (
           <Link to={`/mascot/${image._id}`} key={image._id}>
-            <motion.div
-              className="photo-container"
-              onMouseEnter={() => dispatch(setCursorHover(true))} 
-              onMouseLeave={() => dispatch(setCursorHover(false))}
-            >
               <Photo image={image} alt={`Mascot ${index}`} style={imageStyle} />
-            </motion.div>
           </Link>
         )
       })}

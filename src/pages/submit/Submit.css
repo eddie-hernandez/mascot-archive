@@ -47,12 +47,12 @@
 }
 
 .photo-upload-container label.changed::before {
-  content: 'CHANGE PHOTO';
+  content: 'CHANGE PHOTO (.JPG OR .PNG)';
 }
 
 /* style the custom form inputs */
 .photo-upload-container label::before {
-  content: 'UPLOAD PHOTO';
+  content: 'UPLOAD PHOTO (.JPG OR .PNG)';
   font-size: 1.75vh;
   background: none;
   color: black;

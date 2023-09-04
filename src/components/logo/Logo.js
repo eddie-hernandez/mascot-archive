@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { useDispatch } from 'react-redux'
 import { setCursorHover } from '../../features/cursorSlice'
 import './Logo.css'
@@ -24,7 +23,7 @@ export default function Logo({ handleLogoClick }) {
   }
 
   return (
-    <motion.div className="logo-container">
+    <div className="logo-container">
       <Link to="/">
         <img
           className="logo"
@@ -35,6 +34,6 @@ export default function Logo({ handleLogoClick }) {
           onClick={handleLogoClick}
         />
       </Link>
-    </motion.div>
+    </div>
   )
 }

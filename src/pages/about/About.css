@@ -10,11 +10,11 @@
   flex-direction: column;
   justify-content: center;
   row-gap: 2vh;
-  margin: 4vh 25vw;
+  margin: 4vh 33vw;
 }
 
 .about-text {
-  text-align: left;
+  text-align: center;
 }
 
 .about-subtext {
