@@ -8,7 +8,7 @@ export default function CursorColorPicker({ handleCursorColor }) {
   const dispatch = useDispatch()
   return (
     <div
-      className="cursor-color-picker"
+      className="cursor-color-picker-wrapper"
       onClick={handleCursorColor}
       onMouseEnter={() => {
         dispatch(setCursorHover(true))
@@ -17,7 +17,7 @@ export default function CursorColorPicker({ handleCursorColor }) {
         dispatch(setCursorHover(false))
       }}
     >
-      <img src={shuffleHero} alt="cursor color shuffle icon" />
+      <img className="cursor-color-picker" src={shuffleHero} alt="cursor color shuffle icon" />
     </div>
   )
 }

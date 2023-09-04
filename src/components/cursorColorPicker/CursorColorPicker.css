@@ -1,13 +1,16 @@
-.cursor-color-picker {
+.cursor-color-picker-wrapper {
   display: none;
 }
 
 @media screen and (min-width: 1001px) {
-.cursor-color-picker {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 3vh;
-  height: 100%;
-}
+  .cursor-color-picker-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6vh;
+  }
+  .cursor-color-picker {
+    width: 4vh;
+    height: 4vh;
+  }
 }
