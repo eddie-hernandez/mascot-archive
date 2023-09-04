@@ -92,6 +92,7 @@ export default function App() {
       '#20E700', // magenta
     ]
 
+    // receive a random color from cursor array
     // const randomCursorColor = Math.floor(Math.random() * cursorColors.length)
     // setCursorColor(cursorColors[randomCursorColor])
 
