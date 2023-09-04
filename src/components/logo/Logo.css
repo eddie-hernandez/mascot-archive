@@ -1,0 +1,16 @@
+.logo-container {
+  background-color: #f2eee6;
+  padding: 2vh 0vh;
+}
+
+.logo {
+  width: 40vh;
+  height: 20vh;
+}
+
+@media screen and (max-width: 1000px) {
+  .logo {
+    width: 25vh;
+    height: 12.5vh;
+  }
+}

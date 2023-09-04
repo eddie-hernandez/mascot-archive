@@ -1,0 +1,46 @@
+.admin-login-container {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 5vh;
+}
+
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vh;
+}
+
+.admin-credential-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+}
+
+.admin-input {
+  background: none;
+  border: 3px solid gray;
+  border-radius: 5px;
+  height: 3.5vh;
+  color: black;
+  padding: 0.25vh 8vh 0.25vh 1.5vh;
+}
+
+.admin-submit {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background: none;
+  border: 3px solid gray;
+  border-radius: 5px;
+  height: 4vh;
+  width: 60%;
+  color: gray;
+}
+
+.admin-submit:hover {
+  background-color: #20E700;
+  border-color: #b1afaf;
+}

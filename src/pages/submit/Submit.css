@@ -1,0 +1,187 @@
+.submit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.submit-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vh;
+  margin-top: 5vh;
+  width: 80%;
+}
+
+.thank-you-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vh;
+  height: 30vh;
+}
+
+.success-mark {
+  font-family: cursive;
+}
+
+.photo-upload-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.photo-upload-container label {
+  display: flex;
+  width: 100%;
+}
+
+/* hide default input appearances */
+.photo-upload-container input[type='file'] {
+  display: none;
+  width: 100%;
+}
+
+.photo-upload-container label.changed::before {
+  content: 'CHANGE PHOTO (JPG/PNG)';
+}
+
+/* style the custom form inputs */
+.photo-upload-container label::before {
+  content: 'UPLOAD PHOTO (JPG/PNG)';
+  font-size: 1.75vh;
+  background: none;
+  color: black;
+  padding: 1.5vh 2vh;
+  border: 2px solid gray;
+  border-radius: 10px;
+  width: 100%;
+  text-align: left;
+}
+
+.photo-upload-container:hover {
+  border-radius: 10px;
+  background-color: #20e700;
+}
+
+.text-block {
+  display: flex;
+  padding: 1.5vh 2vh;
+  border: 2px solid gray;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.text-block.disabled:hover {
+  border-color: #c1c0bd;
+}
+
+.text-block input[type='text'] {
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+  font-size: 1.75vh;
+  color: black;
+}
+
+.text-block input[type='text']::placeholder {
+  color: black;
+}
+
+.text-block input[type='text']:disabled::placeholder {
+  color: gray;
+}
+
+.submit-block {
+  display: flex;
+  justify-content: center;
+  width: 50vw;
+  align-self: center;
+  background: none;
+}
+
+.submit-block:hover {
+  border: 2px solid gray !important;
+  background-color: #20e700;
+}
+
+.submit-block:disabled {
+  font-size: 1.75vh;
+  align-items: center;
+}
+
+.submit-block:disabled:hover {
+  background-color: #e4e3de;
+  border-color: #c1c0bd;
+}
+
+.preview-image {
+  margin-top: 55vh;
+  width: 40vh;
+  max-height: 60vh;
+}
+
+.type-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.text-block:hover {
+  border-color: #20e700;
+}
+
+.type {
+  display: flex;
+  align-items: center;
+  column-gap: 2vh;
+}
+
+.type.disabled {
+  color: gray;
+}
+
+.type-selector {
+  width: 2vh;
+  height: 2vh;
+  border-radius: 50px;
+  border: 2px solid gray;
+}
+
+.disabled-selector {
+  background-color: #e4e3de;
+  border-color: #c1c0bd;
+}
+
+.active-selector {
+  background-color: #20e700;
+}
+
+@media screen and (min-width: 1001px) {
+  .submit-container {
+    flex-direction: row;
+    margin-top: 0vh;
+    column-gap: 10vh;
+  }
+
+  .submit-form {
+    width: 50%;
+  }
+
+  .submit-block {
+    width: 20vw;
+  }
+
+  .preview-image {
+    margin-top: 0vh;
+    width: 20vw;
+    max-height: 60vh;
+  }
+}
