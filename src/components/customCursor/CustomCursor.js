@@ -1,21 +1,17 @@
-import React, { useEffect } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { useSelector } from 'react-redux'
 import './CustomCursor.css'
 
 export default function CustomCursor({ cursorColor }) {
-  const cursorX = useMotionValue(-100)
-  const cursorY = useMotionValue(-100)
-  const springConfig = { damping: 50, stiffness: 700 }
-  const cursorXSpring = useSpring(cursorX, springConfig)
-  const cursorYSpring = useSpring(cursorY, springConfig)
+  const [cursorXY, setCursorXY] = useState({ x: -100, y: -100 })
   const cursorHover = useSelector((state) => state.cursor.cursorHover)
 
   useEffect(() => {
-    console.log('this one worked')
     function updateCursorPosition(event) {
-      cursorX.set(event.pageX - 16)
-      cursorY.set(event.pageY - 16)
+      const x = event.pageX - 16
+      const y = event.pageY - 16
+      setCursorXY({ x, y })
     }
 
     window.addEventListener('mousemove', updateCursorPosition)
@@ -30,10 +26,11 @@ export default function CustomCursor({ cursorColor }) {
       className={`custom-cursor ${cursorHover ? 'hover' : ''}`}
       style={{
         backgroundColor: cursorColor,
-        translateX: cursorXSpring,
-        translateY: cursorYSpring,
+        x: cursorXY.x,
+        y: cursorXY.y,
         scale: cursorHover ? 3 : 1,
       }}
     />
   )
 }
+

@@ -41,7 +41,7 @@ export default function About() {
             onMouseEnter={() => dispatch(setCursorHover(true))}
             onMouseLeave={() => dispatch(setCursorHover(false))}
           >
-            Bethany Rennard<br />
+            Bethany Rennard
           </a>{' '}
           and developed by{' '}
           <a

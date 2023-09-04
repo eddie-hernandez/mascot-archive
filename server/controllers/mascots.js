@@ -15,7 +15,6 @@ async function indexApprovedMascots(req, res, next) {
 // index mascots by type
 async function indexMascotsByType(req, res, next) {
   try {
-    console.log(req.params)
     const requestedTypes = req.params.types
 
     // $in operator matches documents that have at least one of the requested types

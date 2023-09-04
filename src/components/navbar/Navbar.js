@@ -25,7 +25,6 @@ export default function Navbar({ setImages, setMascot }) {
       setImages([])
       setMascot(null)
       mascotService.indexRandomMascot().then((data) => {
-        console.log(data)
         setMascot(data)
       })
     } catch (error) {

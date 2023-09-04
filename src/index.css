@@ -1,8 +1,3 @@
-@font-face {
-  font-family: 'Roc Grotesk';
-  src: url('./fonts/rocgrotesk-black.otf') format('opentype');
-}
-
 html,
 body,
 #root,
@@ -12,12 +7,13 @@ body,
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 0;
   font-family: 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f2eee6;
   text-align: center;
+  height: fit-content;
 }
 
 code {

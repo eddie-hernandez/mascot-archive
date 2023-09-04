@@ -27,7 +27,6 @@ export async function indexMascotsByType(type) {
 export async function showMascot(mascotId) {
   try {
     const response = await mascotAPI.findMascotById(mascotId)
-    console.log(response)
     return response
   } catch (error) {
     // Handle error, maybe log it or show a user-friendly message

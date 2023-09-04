@@ -1,9 +1,9 @@
 .about-container {
-  margin-top: 8vh;
+  margin-top: 5vh;
 }
 
 .about-hero {
-  width: 20vh;
+  width: 12.5vh;
 }
 
 .about-text-container {
@@ -24,8 +24,11 @@
 }
 
 @media screen and (min-width: 1001px) {
+  .about-hero {
+    width: 20vh;
+  }
   .about-container {
-    margin-top: 5vh;
+    margin-top: 0vh;
   }
 
   .about-text-container {

@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 
 // importing services
 import { getAdmin } from './utilities/admin-service'
-// import wakeServer from '../../utilities/wake-service'
+// import wakeServer from './utilities/wake-service'
 
 // importing components
 import PrivateRoute from './components/privateRoute'
@@ -36,11 +36,8 @@ export default function App() {
 
   const typeLocation = location.pathname.slice(1)
 
-  // useEffect(() => {
-  //   wakeServer()
-  // })
-
   useEffect(() => {
+    // wakeServer()
     if (location.pathname === '/random') {
       // fetch a random mascot and set it in the state
       mascotService
@@ -83,28 +80,22 @@ export default function App() {
     const cursorColors = [
       '#00a8dd', // orange
       '#FFD700', // dark blue
-      '#0013FF', // yellow
       '#FFFFFF', // black
-      '#84765E', // gray
-      '#ff5722', // sea blue
       '#00FFFF', // deep red
       '#FF69B4', // dark green
+      '#84765E', // gray
       '#20E700', // magenta
     ]
-
-    // receive a random color from cursor array
-    // const randomCursorColor = Math.floor(Math.random() * cursorColors.length)
-    // setCursorColor(cursorColors[randomCursorColor])
 
     // find current cursorColor index
     const currentIndex = cursorColors.findIndex(
       (color) => color === cursorColor
     )
 
-    // Calculate next index
+    // calculate next index in the cursorColors array
     const nextIndex = (currentIndex + 1) % cursorColors.length
 
-    // Set cursor color to the next color
+    // set cursor color to the next color
     setCursorColor(cursorColors[nextIndex])
 
     if (cursorColors[currentIndex] === '#20E700') {

@@ -43,9 +43,7 @@ export default function AdminDashboard({ setAdmin }) {
   function handleSort(submissionId, status) {
     adminService
       .sortSubs(submissionId, status)
-      .then((response) => {
-        console.log('Submission status updated:', response)
-        // refresh all submission lists
+      .then(() => {
         adminService
           .fetchPendingSubs()
           .then((submissions) => {
@@ -99,12 +97,13 @@ export default function AdminDashboard({ setAdmin }) {
         </button>
       </div>
       <div className="admin-gallery-container">
-        <div className="admin-gallery">
+        <div className="admin-gallery-section">
           <h5
-            className={showPending ? 'dropdown active-dropdown' : 'dropdown'}
+            className={showPending ? 'dropdown active-dropdown pending' : 'dropdown pending'}
             onClick={() => setShowPending(!showPending)}
             onMouseEnter={() => dispatch(setCursorHover(true))}
             onMouseLeave={() => dispatch(setCursorHover(false))}
+            style={{textAlign: 'left'}}
           >
             Pending ({pendingSubs.length})
           </h5>
@@ -115,23 +114,25 @@ export default function AdminDashboard({ setAdmin }) {
             />
           )}
         </div>
-        <div className="admin-gallery">
+        <div className="admin-gallery-section">
           <h5
-            className={showApproved ? 'dropdown active-dropdown' : 'dropdown'}
+            className={showApproved ? 'dropdown active-dropdown approved' : 'dropdown approved'}
             onClick={() => setShowApproved(!showApproved)}
             onMouseEnter={() => dispatch(setCursorHover(true))}
             onMouseLeave={() => dispatch(setCursorHover(false))}
+            style={{textAlign: 'left'}}
           >
             Approved ({approvedSubs.length})
           </h5>
           {showApproved && <ApprovedGallery approvedSubs={approvedSubs} />}
         </div>
-        <div className="admin-gallery">
+        <div className="admin-gallery-section">
           <h5
-            className={showDenied ? 'dropdown active-dropdown' : 'dropdown'}
+            className={showDenied ? 'dropdown active-dropdown ' : 'dropdown'}
             onClick={() => setShowDenied(!showDenied)}
             onMouseEnter={() => dispatch(setCursorHover(true))}
             onMouseLeave={() => dispatch(setCursorHover(false))}
+            style={{textAlign: 'left'}}
           >
             Denied ({deniedSubs.length})
           </h5>

@@ -28,13 +28,14 @@
   }
   .desktop-header {
     display: flex;
-    justify-content: space-around;
     align-items: center;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 9998;
     background-color: #f2eee6;
+    justify-content: space-around;
+    height: 30vh;
   }
   .blank {
     flex-grow: 0.25;

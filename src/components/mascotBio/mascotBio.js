@@ -11,12 +11,10 @@ export default function MascotBio({ setMascot, mascot }) {
   const location = useLocation()
 
   useEffect(() => {
-    console.log('this one worked')
     if (location.pathname !== '/random') {
       mascotService
         .showMascot(id)
         .then((response) => {
-          console.log(response)
           setMascot(response.mascot)
         })
         .catch((error) => {

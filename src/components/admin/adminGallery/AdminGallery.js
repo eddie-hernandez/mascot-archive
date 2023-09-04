@@ -6,7 +6,7 @@ import './AdminGallery.css'
 export function PendingGallery({ pendingSubs, handleSort }) {
   const dispatch = useDispatch()
   return (
-    <div className="gallery">
+    <div className="admin-gallery">
       {pendingSubs.map((submission) => (
         <div className="admin-sub-container" key={submission._id}>
           <img
@@ -14,9 +14,9 @@ export function PendingGallery({ pendingSubs, handleSort }) {
             src={submission.imagePath}
             alt="submission"
           />
-          <p><u><span style={{ fontWeight: 'bold' }}>Types</span></u>: <i>{submission.types.join(', ')}</i></p>
-          <p><u><span style={{ fontWeight: 'bold' }}>Location</span></u>: <i>{submission.locationDescription}</i></p>
-          <p><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: <i>{submission.comments ? submission.comments : 'n/a'}</i></p>
+          <h6><u><span style={{ fontWeight: 'bold' }}>Types</span></u>: <i>{submission.types.join(', ')}</i></h6>
+          <h6><u><span style={{ fontWeight: 'bold' }}>Location</span></u>: <i>{submission.locationDescription}</i></h6>
+          <h6><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: <i>{submission.comments ? submission.comments : 'n/a'}</i></h6>
           <div className='classify-btns'>
             <button
               className="styledbtn"
@@ -43,7 +43,7 @@ export function PendingGallery({ pendingSubs, handleSort }) {
 
 export function ApprovedGallery({ approvedSubs }) {
   return (
-    <div className="gallery">
+    <div className="admin-gallery">
       {approvedSubs.map((submission) => (
         <div className="admin-sub-container" key={submission._id}>
           <img
@@ -62,7 +62,7 @@ export function ApprovedGallery({ approvedSubs }) {
 
 export function DeniedGallery({ deniedSubs }) {
   return (
-    <div className="gallery">
+    <div className="admin-gallery">
       {deniedSubs.map((submission) => (
         <div className="admin-sub-container" key={submission._id}>
           <img

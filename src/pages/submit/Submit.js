@@ -33,7 +33,6 @@ export default function Submit() {
     formData.append('photo', photo)
 
     try {
-      console.log(formData)
       const response = await submitNewPhoto(formData)
 
       if (response.status === 429) {

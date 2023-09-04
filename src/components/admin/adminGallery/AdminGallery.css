@@ -1,8 +1,9 @@
-.gallery {
+.admin-gallery {
   margin-top: 3vh;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .admin-sub-container {
@@ -10,18 +11,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 20vw;
-  row-gap: 1vh;
+  row-gap: 2vh;
   margin-bottom: 4vh;
 }
 
 .admin-sub-img {
-  width: 10vw;
-  max-height: 25vh;
+  width: 20vh;
 }
 
 .classify-btns {
   display: flex;
   justify-content: space-between;
-  width: 50%;
 }

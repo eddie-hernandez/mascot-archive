@@ -13,11 +13,7 @@
 }
 
 .link-text {
-  font-size: 2.5vh;
-}
-
-.link-text:hover {
-  color: rgb(0, 0, 255);
+  font-size: 2vh;
 }
 
 .navbar-link:visited {
@@ -29,20 +25,28 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 10vh;
+  height: 5vh;
   row-gap: 1vh;
+  background-color: black;
+  color: white;
+}
+
+.active-link .link-container {
+  background-color: white;
+  color: black;
 }
 
 .active-dot {
   width: 10px;
   height: 10px;
-  background-color: #20E700;
+  background-color: #20e700;
   border-radius: 50px;
   display: none;
 }
 
 .active-link .link-text {
   display: block;
-  color: blue;
 }
 
 @media screen and (min-width: 1001px) {
@@ -57,10 +61,24 @@
     display: block;
   }
 
+  .link-text:hover {
+    color: rgb(0, 0, 255);
+  }
+
   .active-link .link-text {
     color: black;
   }
   .link-text {
     font-size: 3vh;
+  }
+  .active-link .link-container {
+    background-color: transparent;
+    color: black;
+  }
+  .link-container {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    color: black;
   }
 }
