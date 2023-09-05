@@ -4,8 +4,7 @@ const Submission = require('../models/submission')
 async function indexApprovedMascots(req, res, next) {
   try {
     const mascots = await Submission.find({ approved: true })
-    console.log(mascots)
-    if (!mascots) throw new Error('No mascots available')
+    if (!mascots) return new Error('No mascots available')
     return res.status(200).json({ mascots })
   } catch (error) {
     next(error)
@@ -23,7 +22,7 @@ async function indexMascotsByType(req, res, next) {
       approved: true,
       types: { $in: requestedTypes },
     });
-    if (!mascots) throw new Error('No mascots available')
+    if (!mascots) return new Error('No mascots available')
     return res.status(200).json({ mascots })
   } catch (error) {
     next(error)
@@ -36,7 +35,7 @@ async function findMascotById(req, res, next) {
   if (req.params.id !== 'random') {
     try {
       const mascot = await Submission.findById(req.params.id)
-      if (!mascot) throw new Error('No mascot available')
+      if (!mascot) return next(new Error('No mascot available'))
       return res.status(200).json({ mascot: mascot })
     } catch (error) {
       next(error)
