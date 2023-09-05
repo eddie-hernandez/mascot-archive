@@ -1,6 +1,6 @@
-// module.exports = function (req, res, next) {
-//   // Status code of 401 --> 'Unauthorized'
-//   if (!req.admin) return res.status(401).json('Unauthorized')
-//   // Okay!
-//   next()
-// }
+module.exports = function (req, res, next) {
+  // Status code of 401 --> 'Unauthorized'
+  if (!req.admin) return res.status(401).json('Unauthorized')
+  // Okay!
+  next()
+}

@@ -5,7 +5,7 @@ const BASE_URL = '/api/admin'
   //   ? process.env.REACT_APP_DEPLOYMENT_BACKEND
   //   : process.env.REACT_APP_DEVELOPMENT_BACKEND
 
-// check that user is logged in with token
+// check that admin is logged in with token
 export function verifyToken() {
   return sendRequest(`${BASE_URL}/verify-token`)
 }
