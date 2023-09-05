@@ -30,7 +30,7 @@ export async function showMascot(mascotId) {
     return response
   } catch (error) {
     // Handle error, maybe log it or show a user-friendly message
-    console.error('Error fetching pending submissions:', error)
+    console.error('Error fetching a specific mascot:', error)
     throw error
   }
 }

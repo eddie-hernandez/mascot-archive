@@ -59,7 +59,7 @@ export async function fetchApprovedSubs() {
     return approvedSubs
   } catch (error) {
     // Handle error, maybe log it or show a user-friendly message
-    console.error('Error fetching pending submissions:', error)
+    console.error('Error fetching approved submissions:', error)
     throw error
   }
 }
@@ -70,7 +70,7 @@ export async function fetchDeniedSubs() {
     return deniedSubs
   } catch (error) {
     // Handle error, maybe log it or show a user-friendly message
-    console.error('Error fetching pending submissions:', error)
+    console.error('Error fetching denied submissions:', error)
     throw error
   }
 }

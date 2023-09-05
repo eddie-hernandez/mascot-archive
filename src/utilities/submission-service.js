@@ -6,6 +6,7 @@ export async function submitNewPhoto(formData) {
     const response = await submissionAPI.submitPhoto(formData)
     return response
   } catch (error) {
+    console.error('Error submitting photo:', error)
     throw error
   }
 }

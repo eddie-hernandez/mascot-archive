@@ -1,9 +1,6 @@
 import sendRequest from './send-request'
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api/mascots`
-  // process.env.NODE_ENV === 'production'
-  //   ? process.env.REACT_APP_DEPLOYMENT_BACKEND
-  //   : process.env.REACT_APP_DEVELOPMENT_BACKEND
 
 // index mascots
 export function indexMascots() {
@@ -17,7 +14,7 @@ export function findMascotById(mascotId) {
 
 // index mascots by type
 export function indexMascotsByType(type) {
-  return sendRequest(BASE_URL + `/${type}`, 'GET')
+  return sendRequest(BASE_URL + `/types/${type}`, 'GET')
 }
 
 // index random mascot
