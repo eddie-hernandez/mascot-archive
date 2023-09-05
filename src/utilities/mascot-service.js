@@ -7,7 +7,7 @@ export async function indexApprovedMascots() {
     return response.mascots
   } catch (error) {
     // Handle error, maybe log it or show a user-friendly message
-    console.error('Error fetching pending submissions:', error)
+    console.error('Error indexing mascots:', error)
     throw error
   }
 }

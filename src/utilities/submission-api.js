@@ -1,9 +1,6 @@
 import sendRequest from './send-request';
 
-const BASE_URL = '/api/submit'
-  // process.env.NODE_ENV === 'production'
-  //   ? process.env.REACT_APP_DEPLOYMENT_BACKEND
-  //   : process.env.REACT_APP_DEVELOPMENT_BACKEND
+const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api/submit`
 
 // submit photo
 export function submitPhoto(formData) {
