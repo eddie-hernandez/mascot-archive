@@ -104,6 +104,7 @@
   width: 50vw;
   align-self: center;
   background: none;
+  color: black;
 }
 
 .submit-block:hover {
