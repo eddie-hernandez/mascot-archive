@@ -37,7 +37,7 @@ app.use('/api/admin', require('./server/routes/admins'))
 app.use('/api/mascots', require('./server/routes/mascots'))
 
 // Protect the api routes below from anon users
-const ensureLoggedIn = require('./server/config/ensureLoggedIn');
+// const ensureLoggedIn = require('./server/config/ensureLoggedIn');
 
 const port = process.env.PORT || 3001
 
