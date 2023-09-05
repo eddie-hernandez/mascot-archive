@@ -6,5 +6,5 @@ const BASE_URL =
     : process.env.REACT_APP_DEVELOPMENT_BACKEND
 
 export default function wakeServer() {
-  return sendRequest(BASE_URL + '/api/admin/wake', 'PUT')
+  return sendRequest(BASE_URL + '/api/admin/wake', 'GET')
 }

@@ -9,7 +9,7 @@ const ensureLoggedIn = require('../config/ensureLoggedIn')
 router.get('/verify-token', ensureLoggedIn, adminCtrlr.verifyToken)
 
 // wake server!
-router.put('/wake', (req, res, next) => {
+router.get('/wake', (req, res, next) => {
   res.sendStatus(204)
 })
 
