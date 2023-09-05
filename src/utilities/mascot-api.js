@@ -7,7 +7,7 @@ const BASE_URL =
 
 // index mascots
 export function indexMascots() {
-  return sendRequest(BASE_URL + '/api/mascots/', 'GET')
+  return sendRequest(BASE_URL + '/api/mascots', 'GET')
 }
 
 // find mascot by id
