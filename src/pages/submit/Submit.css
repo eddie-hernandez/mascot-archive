@@ -115,6 +115,7 @@
 .submit-block:disabled {
   font-size: 1.75vh;
   align-items: center;
+  color: gray;
 }
 
 .submit-block:disabled:hover {
