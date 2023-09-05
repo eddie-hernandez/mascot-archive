@@ -6,7 +6,7 @@ export async function indexApprovedMascots() {
     const response = await mascotAPI.indexMascots()
     return response.mascots
   } catch (error) {
-    // Handle error, maybe log it or show a user-friendly message
+    // handle error
     console.error('Error indexing mascots:', error)
     throw error
   }
