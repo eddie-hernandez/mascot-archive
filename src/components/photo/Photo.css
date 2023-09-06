@@ -10,6 +10,14 @@
   filter: brightness(1.1);
 }
 
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .mascot-photo {
+    width: 15vw;
+    height: 15vw;
+  }
+}
+
+
 @media screen and (min-width: 1001px) {
   .mascot-photo {
     width: 15vh;

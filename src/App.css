@@ -1,4 +1,12 @@
-@media screen and (max-width: 1000px) {
+.gallery-wrapper {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 30vh;
+  overflow-y: auto;
+  height: 100vh; 
+}
+
+@media screen and (max-width: 1000px) and (orientation: portrait) {
   .mobile-header {
     display: flex;
     justify-content: center;
@@ -13,9 +21,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 2vh;
   }
   .desktop-header {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .mobile-header {
+    display: none;
+  }
+  .mobile-nav {
+    display: none;
+  }
+  .desktop-header {
+    display: flex;
+    align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 9998;
+    background-color: #f2eee6;
+    justify-content: space-around;
+    height: 25vh;
+  }
+  .blank {
+    flex-grow: 0.25;
   }
 }
 

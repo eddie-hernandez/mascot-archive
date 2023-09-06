@@ -44,3 +44,22 @@
     row-gap: 5vh;
   }
 }
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .mascot-bio-photo {
+    width: 20vw;
+    max-height: 60vh;
+  }
+  .mascot-bio-container {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 5vw;
+  }
+  .mascot-bio {
+    text-align: left;
+    row-gap: 5vh;
+  }
+}

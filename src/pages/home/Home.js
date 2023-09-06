@@ -17,8 +17,8 @@ export default function Home({ images, setImages }) {
   }, [setImages]);
 
   return (
-    <>
+    <div className='gallery-wrapper'>
       <Gallery images={images} />
-    </>
+    </div>
   )
 }

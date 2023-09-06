@@ -35,3 +35,18 @@
     margin: 4vh 33vw;
   }
 }
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .about-hero {
+    width: 20vh;
+  }
+
+  .about-container {
+    margin-top: 0vh;
+  }
+
+  .about-text-container {
+    margin: 4vh 25vw;
+    row-gap: 3vh;
+  }
+}

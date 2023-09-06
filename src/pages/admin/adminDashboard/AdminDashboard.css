@@ -7,7 +7,7 @@
 }
 
 .admin-dashboard-header {
-  margin-bottom: 5vh;
+  margin-bottom: 10vh;
   display: flex;
   flex-direction: column;
   row-gap: 2vh;
@@ -72,3 +72,30 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .admin-dashboard {
+    margin: 0vh;
+  }
+  .admin-dashboard-header {
+    margin-bottom: 0vh;
+  }
+
+  .dropdown {
+    padding: 0vh 0vh 0vh 5vh;
+  }
+
+  .admin-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .admin-logout-btn {
+    width: 30vh;
+  }
+  .styledbtn {
+    height: 7.5vh;
+    font-size: 3.5vh;
+  }
+}
+

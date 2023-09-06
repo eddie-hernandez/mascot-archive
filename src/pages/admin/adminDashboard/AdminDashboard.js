@@ -92,7 +92,7 @@ export default function AdminDashboard({ setAdmin }) {
     <div className="admin-dashboard">
       <div className="admin-dashboard-header">
         <h5>Admin Dashboard</h5>
-        <button onClick={handleLogOut} className="styledbtn">
+        <button onClick={handleLogOut} className="styledbtn admin-logout-btn">
           Admin Logout
         </button>
       </div>

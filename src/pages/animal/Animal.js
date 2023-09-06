@@ -4,7 +4,7 @@ import Gallery from '../../components/gallery/Gallery'
 
 export default function Animal({ images }) {
   return (
-    <div className="animal-container">
+    <div className="gallery-wrapper">
       <Gallery images={images} />
     </div>
   )

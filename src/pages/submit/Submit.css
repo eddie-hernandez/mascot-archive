@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: fit-content;
 }
 
 .submit-form {
@@ -53,7 +53,7 @@
 /* style the custom form inputs */
 .photo-upload-container label::before {
   content: 'UPLOAD PHOTO (JPG/PNG)';
-  font-size: 1.75vh;
+  font-size: 16px;
   background: none;
   color: black;
   padding: 1.5vh 2vh;
@@ -86,12 +86,13 @@
   outline: none;
   background: none;
   width: 100%;
-  font-size: 1.75vh;
+  font-size: 16px;
   color: black;
 }
 
 .text-block input[type='text']::placeholder {
   color: black;
+  font-size: 16px;
 }
 
 .text-block input[type='text']:disabled::placeholder {
@@ -105,6 +106,7 @@
   align-self: center;
   background: none;
   color: black;
+  font-size: 16px;
 }
 
 .submit-block:hover {
@@ -113,7 +115,6 @@
 }
 
 .submit-block:disabled {
-  font-size: 1.75vh;
   align-items: center;
   color: gray;
 }
@@ -124,7 +125,7 @@
 }
 
 .preview-image {
-  margin-top: 55vh;
+  margin-top: 5vh;
   width: 40vh;
   max-height: 60vh;
 }
@@ -185,5 +186,67 @@
     margin-top: 0vh;
     width: 20vw;
     max-height: 60vh;
+  }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .submit-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 0vh;
+    column-gap: 10vh;
+  }
+
+  .text-block {
+    padding: 2vh 3vh;
+  }
+
+  .photo-upload-container label::before {
+    font-size: 16px;
+  }
+
+  .text-block input[type="text"] {
+    font-size: 16px;
+  }
+
+  .submit-block {
+    height: 8vh;
+  }
+
+  .photo-upload-container label::before {
+    padding: 2vh 3vh;
+  }
+
+  .submit-form {
+    width: 50%;
+  }
+
+  .submit-block {
+    width: 20vw;
+    height: 10vh;
+  }
+
+  .submit-block:disabled {
+    font-size: 16px;
+  }
+
+  .submit-block {
+    font-size: 16px;
+  }
+
+  .preview-image {
+    width: 20vw;
+    max-height: 60vh;
+  }
+
+  .type-selector {
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50px;
+    border: 2px solid gray;
+  }
+  .check-text {
+    font-size: 3.5vh;
   }
 }

@@ -10,7 +10,7 @@
 .admin-login-form {
   display: flex;
   flex-direction: column;
-  row-gap: 5vh;
+  row-gap: 10vh;
 }
 
 .admin-credential-container {
@@ -34,7 +34,7 @@
   align-self: center;
   background: none;
   border: 3px solid gray;
-  border-radius: 5px;
+  border-radius: 10px;
   height: 4vh;
   width: 60%;
   color: gray;
@@ -43,4 +43,16 @@
 .admin-submit:hover {
   background-color: #20E700;
   border-color: #b1afaf;
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .admin-input {
+    height: 6vh;
+  }
+  .admin-submit {
+    height: 8vh;
+  }
+  .admin-credential-container {
+    row-gap: 4vh;
+  }
 }

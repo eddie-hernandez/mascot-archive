@@ -1,16 +1,26 @@
 .logo-container {
   background-color: #f2eee6;
   padding: 2vh 0vh;
+  width: 100%;
 }
 
 .logo {
-  width: 40vh;
-  height: 20vh;
+  width: 25vh;
+  height: 12.5vh;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 1001px) {
   .logo {
-    width: 25vh;
-    height: 12.5vh;
+    width: 40vh;
+    height: 20vh;
+  }
+  .logo-container {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .logo-container {
+    width: auto;
   }
 }

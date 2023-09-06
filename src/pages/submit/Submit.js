@@ -200,7 +200,7 @@ export default function Submit() {
               onMouseEnter={() => dispatch(setCursorHover(true))}
               onMouseLeave={() => dispatch(setCursorHover(false))}
             />
-            <h6>lil hat</h6>
+            <h6 className={isPhotoSelected ? 'check-text' : 'disabled-text'}>lil hat</h6>
           </label>
         </div>
 

@@ -49,6 +49,40 @@
   display: block;
 }
 
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5vw;
+    margin-top: 5vh;
+  }
+  .active-link .active-dot {
+    display: block;
+  }
+
+  .link-text:hover {
+    color: rgb(0, 0, 255);
+  }
+
+  .active-link .link-text {
+    color: black;
+  }
+  .link-text {
+    font-size: 4vh;
+  }
+  .active-link .link-container {
+    background-color: transparent;
+    color: black;
+  }
+  .link-container {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    color: black;
+  }
+}
+
 @media screen and (min-width: 1001px) {
   .navbar {
     display: flex;

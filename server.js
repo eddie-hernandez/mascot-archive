@@ -25,7 +25,7 @@ const submissionRateLimiter = rateLimit({
   max: 5,
   message: 'Too many submissions from this IP, please try again later.',
   // skip rate limiting for requests with X-Forwarded-For header (for local development)
-  skip: (req) => req.headers['x-forwarded-for'] !== undefined
+  // skip: (req) => req.headers['x-forwarded-for'] !== undefined
 });
 
 // double middleware to track user's submissions based on IP address
