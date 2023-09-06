@@ -2,13 +2,13 @@
   background-color: #f2eee6;
   padding: 2vh 0vh;
   width: 100%;
-  margin-top: -10vh;
+  margin-top: -20vh;
 }
 
 .logo {
   width: 25vh;
   height: 12.5vh;
-  margin-top: 10vh;
+  margin-top: 20vh;
 }
 
 @media screen and (min-width: 1001px) {
