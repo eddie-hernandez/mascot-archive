@@ -169,6 +169,7 @@
     flex-direction: row;
     margin-top: 0vh;
     column-gap: 10vh;
+    align-items: flex-start;
   }
 
   .submit-form {
@@ -180,7 +181,7 @@
   }
 
   .preview-image {
-    margin-top: 0vh;
+    margin-top: 5vh;
     width: 20vw;
     max-height: 60vh;
   }
