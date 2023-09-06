@@ -14,9 +14,9 @@ export function PendingGallery({ pendingSubs, handleSort }) {
             src={submission.imagePath}
             alt="submission"
           />
-          <h6><u><span style={{ fontWeight: 'bold' }}>Types</span></u>: <i>{submission.types.join(', ')}</i></h6>
-          <h6><u><span style={{ fontWeight: 'bold' }}>Location</span></u>: <i>{submission.locationDescription}</i></h6>
-          <h6><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: <i>{submission.comments ? submission.comments : 'n/a'}</i></h6>
+          <h6><u><span style={{ fontWeight: 'bold' }}>Types</span></u>: {submission.types.length !== 0 ? submission.types.join(', ') : 'n/a'}</h6>
+          <h6><u><span style={{ fontWeight: 'bold' }}>Location</span></u>: {submission.locationDescription ? submission.locationDescription : 'n/a'}</h6>
+          <h6><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: {submission.comments ? submission.comments : 'n/a'}</h6>
           <div className='classify-btns'>
             <button
               className="styledbtn"
@@ -51,9 +51,9 @@ export function ApprovedGallery({ approvedSubs }) {
             src={submission.imagePath}
             alt="submission"
           />
-          <p><u><span style={{fontWeight: 'bold'}}>Types</span></u>: <i>{submission.types.join(', ')}</i></p>
-          <p><u><span style={{fontWeight: 'bold'}}>Location</span></u>: <i>{submission.locationDescription}</i></p>
-          <p><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: <i>{submission.comments ? submission.comments : 'n/a'}</i></p>
+          <h6><u><span style={{fontWeight: 'bold'}}>Types</span></u>: {submission.types.length !== 0 ? submission.types.join(', ') : 'n/a'}</h6>
+          <h6><u><span style={{fontWeight: 'bold'}}>Location</span></u>: {submission.locationDescription ? submission.locationDescription : 'n/a'}</h6>
+          <h6><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: {submission.comments ? submission.comments : 'n/a'}</h6>
         </div>
       ))}
     </div>
@@ -70,9 +70,9 @@ export function DeniedGallery({ deniedSubs }) {
             src={submission.imagePath}
             alt="submission"
           />
-          <p><u><span style={{fontWeight: 'bold'}}>Types</span></u>: <i>{submission.types.join(', ')}</i></p>
-          <p><u><span style={{fontWeight: 'bold'}}>Location</span></u>: <i>{submission.locationDescription}</i></p>
-          <p><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: <i>{submission.comments ? submission.comments : 'n/a'}</i></p>
+          <h6><u><span style={{fontWeight: 'bold'}}>Types</span></u>: {submission.types.length !== 0 ? submission.types.join(', ') : 'n/a'}</h6>
+          <h6><u><span style={{fontWeight: 'bold'}}>Location</span></u>: {submission.locationDescription ? submission.locationDescription : 'n/a'}</h6>
+          <h6><u><span style={{fontWeight: 'bold'}}>Comments</span></u>: {submission.comments ? submission.comments : 'n/a'}</h6>
         </div>
       ))}
     </div>

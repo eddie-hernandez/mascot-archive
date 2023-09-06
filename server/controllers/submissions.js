@@ -5,6 +5,8 @@ async function postSubmission(req, res, next) {
     // Save metadata to MongoDB
     const newSubmission = new Submission({
       imagePath: req.file.location,
+      locationDescription: req.body.locationDescription,
+      comments: req.body.comments
     })
 
     newSubmission.types = req.body.types;

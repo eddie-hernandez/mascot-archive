@@ -37,15 +37,15 @@ export default function MascotBio({ setMascot, mascot }) {
           <div className="mascot-bio">
             <div className="mascot-bio-group">
               <h6>TYPE(S)</h6>
-              <p><i>{mascot.types.join(', ')}</i></p>
+              <p>{mascot.types ? mascot.types.join(', ') : 'n/a'}</p>
             </div>
             <div className="mascot-bio-group">
               <h6>LOCATION</h6>
-              <p><i>{mascot.locationDescription}</i></p>
+              <p>{mascot.locationDescription ? mascot.locationDescription : 'n/a'}</p>
             </div>
             <div className="mascot-bio-group">
               <h6>ETC</h6>
-              <p><i>{mascot.comments ? mascot.comments : 'n/a'}</i></p>
+              <p>{mascot.comments ? mascot.comments : 'n/a'}</p>
             </div>
           </div>
         </div>

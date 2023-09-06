@@ -1,14 +1,14 @@
 .mascot-bio-container {
-  margin-top: 5vh;
+  margin-top: 2vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 5vh;
+  row-gap: 2vh;
 }
 
 .mascot-bio-photo {
-  width: 60vw;
+  width: 30vh;
   max-height: 60vh;
 }
 
@@ -38,6 +38,8 @@
     align-items: flex-start;
     margin-left: 20vw;
     column-gap: 5vw;
+    margin-top: 5vh;
+    row-gap: 5vh;
   }
   .mascot-bio {
     text-align: left;
