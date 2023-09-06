@@ -4,8 +4,8 @@ import Photo from '../photo/Photo';
 import './Gallery.css';
 
 export default function Gallery({ images }) {
-  const imageWidth = 150;
-  const imageHeight = 150;
+  const imageWidth = 100;
+  const imageHeight = 100;
   const margin = 20;
 
   const [placedImages, setPlacedImages] = useState([]);

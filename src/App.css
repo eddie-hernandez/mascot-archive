@@ -1,8 +1,6 @@
 .gallery-wrapper {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 30vh;
-  overflow-y: auto;
+  position: relative;
+  top: 0vh;
   height: 100vh;
 }
 
