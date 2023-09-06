@@ -17,6 +17,7 @@
   flex-direction: column;
   row-gap: 3vh;
   text-align: center;
+  padding-bottom: 12.5vh;
 }
 
 .mascot-bio-group {
