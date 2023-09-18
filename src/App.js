@@ -32,9 +32,17 @@ export default function App() {
   const [images, setImages] = useState([])
   const [mascot, setMascot] = useState(null)
   const [cursorColor, setCursorColor] = useState('#C600EB')
+  const [logoClicked, setLogoClicked] = useState(false);
   const location = useLocation()
-
   const typeLocation = location.pathname.slice(1)
+
+  // fisher-yates shuffle
+  function shuffleImages(imageArray) {
+    for (let i = imageArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[imageArray[i], imageArray[j]] = [imageArray[j], imageArray[i]]
+    }
+  }
 
   useEffect(() => {
     // wakeServer()
@@ -42,8 +50,8 @@ export default function App() {
       // fetch a random mascot and set it in the state
       mascotService
         .indexRandomMascot()
-        .then((data) => {
-          setMascot(data)
+        .then((mascot) => {
+          setMascot(mascot)
         })
         .catch((error) => {
           console.error('Error fetching random mascot:', error)
@@ -53,9 +61,12 @@ export default function App() {
       location.pathname === '/food' ||
       location.pathname === '/lil-hat'
     ) {
+      setMascot(null)
+      setImages([])
       mascotService
         .indexMascotsByType(typeLocation)
         .then((mascots) => {
+          shuffleImages(mascots)
           setImages(mascots)
         })
         .catch((error) => {
@@ -67,9 +78,11 @@ export default function App() {
   function handleLogoClick() {
     mascotService
       .indexApprovedMascots()
-      .then((data) => {
-        setImages(data)
+      .then((mascots) => {
+        shuffleImages(mascots)
+        setImages(mascots)
         window.scrollTo(0, 0)
+        setLogoClicked(true)
       })
       .catch((error) => {
         console.error('Error fetching mascots', error)
@@ -109,28 +122,89 @@ export default function App() {
       <div className="mobile-header">
         <Logo handleLogoClick={handleLogoClick} />
       </div>
-      <div className="mobile-nav">
-        <Navbar setImages={setImages} setMascot={setMascot} />
-      </div>
+      {location.pathname === '/random' ||
+      location.pathname === '/submit' ||
+      location.pathname === '/about' ||
+      location.pathname.includes('/mascot') ||
+      location.pathname.includes('/admin') ? (
+        <div className="mobile-nav">
+          <Navbar
+            setImages={setImages}
+            setMascot={setMascot}
+            shuffleImages={shuffleImages}
+          />
+        </div>
+      ) : (
+        ''
+      )}
       <div className="desktop-header">
         <div className="blank" />
         <CursorColorPicker handleCursorColor={handleCursorColor} />
-        <Navbar setImages={setImages} setMascot={setMascot} />
+        <Navbar
+          setImages={setImages}
+          setMascot={setMascot}
+          shuffleImages={shuffleImages}
+        />
         <Logo handleLogoClick={handleLogoClick} />
       </div>
       <Routes>
         {/* Establishing routes */}
         <Route
           path="/"
-          element={<Home images={images} setImages={setImages} />}
+          element={
+            <Home
+              images={images}
+              setImages={setImages}
+              shuffleImages={shuffleImages}
+              setMascot={setMascot}
+              logoClicked={logoClicked}
+              setLogoClicked={setLogoClicked}
+            />
+          }
         />
         <Route
           path="/mascot/:id"
           element={<MascotBio mascot={mascot} setMascot={setMascot} />}
         />
-        <Route path="/animal" element={<Animal images={images} />} />
-        <Route path="/food" element={<Food images={images} />} />
-        <Route path="/lil-hat" element={<Hat images={images} />} />
+        <Route
+          path="/animal"
+          element={
+            <Animal
+              images={images}
+              setMascot={setMascot}
+              setImages={setImages}
+              shuffleImages={shuffleImages}
+              logoClicked={logoClicked}
+              setLogoClicked={setLogoClicked}
+            />
+          }
+        />
+        <Route
+          path="/food"
+          element={
+            <Food
+              images={images}
+              setMascot={setMascot}
+              setImages={setImages}
+              shuffleImages={shuffleImages}
+              logoClicked={logoClicked}
+              setLogoClicked={setLogoClicked}
+            />
+          }
+        />
+        <Route
+          path="/lil-hat"
+          element={
+            <Hat
+              images={images}
+              setMascot={setMascot}
+              setImages={setImages}
+              shuffleImages={shuffleImages}
+              logoClicked={logoClicked}
+              setLogoClicked={setLogoClicked}
+            />
+          }
+        />
         <Route path="/random" element={<Random mascot={mascot} />} />
         <Route path="/submit" element={<Submit />} />
         <Route path="/about" element={<About />} />

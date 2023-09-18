@@ -2,7 +2,7 @@
   display: none;
 }
 
-@media screen and (min-width: 1001px) {
+@media screen and (min-width: 1201px) {
   .custom-cursor {
     display: block;
     position: absolute;

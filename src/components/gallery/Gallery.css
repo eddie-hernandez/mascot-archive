@@ -1,4 +1,28 @@
-.gallery-container {
-  margin-top: 0vh;
+.image-container {
   position: relative;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scroll-message {
+  height: 5vh;
+  font-weight: bold;
+}
+
+#scrollableDiv {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 1400px) and (orientation: landscape) {
+  #scrollableDiv {
+    height: 70vh;
+  }
+}
+
+@media screen and (min-width: 1401px) {
+  #scrollableDiv {
+    height: 70vh;
+  }
 }

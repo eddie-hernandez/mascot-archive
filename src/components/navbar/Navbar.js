@@ -5,7 +5,7 @@ import { setCursorHover } from '../../features/cursorSlice'
 import './Navbar.css'
 import * as mascotService from '../../utilities/mascot-service'
 
-export default function Navbar({ setImages, setMascot }) {
+export default function Navbar({ setImages, setMascot, shuffleImages }) {
   const dispatch = useDispatch()
   function handleTypeClick(type) {
     try {
@@ -13,6 +13,7 @@ export default function Navbar({ setImages, setMascot }) {
       setImages([])
 
       mascotService.indexMascotsByType(type).then((mascots) => {
+        shuffleImages(mascots)
         setImages(mascots)
       })
     } catch (error) {
@@ -24,8 +25,9 @@ export default function Navbar({ setImages, setMascot }) {
     try {
       setImages([])
       setMascot(null)
-      mascotService.indexRandomMascot().then((data) => {
-        setMascot(data)
+      mascotService.indexRandomMascot().then((mascot) => {
+        shuffleImages(mascot)
+        setMascot(mascot)
       })
     } catch (error) {
       console.error('Error fetching random mascot:', error)
