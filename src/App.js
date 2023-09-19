@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 
 // importing services
 import { getAdmin } from './utilities/admin-service'
-// import wakeServer from './utilities/wake-service'
+import wakeServer from './utilities/wake-service'
 
 // importing components
 import PrivateRoute from './components/privateRoute'
@@ -32,7 +32,7 @@ export default function App() {
   const [images, setImages] = useState([])
   const [mascot, setMascot] = useState(null)
   const [cursorColor, setCursorColor] = useState('#C600EB')
-  const [logoClicked, setLogoClicked] = useState(false);
+  const [logoClicked, setLogoClicked] = useState(false)
   const location = useLocation()
   const typeLocation = location.pathname.slice(1)
 
@@ -45,7 +45,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    // wakeServer()
+    wakeServer()
     if (location.pathname === '/random') {
       // fetch a random mascot and set it in the state
       mascotService

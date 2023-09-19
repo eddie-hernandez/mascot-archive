@@ -9,9 +9,9 @@ const ensureLoggedIn = require('../config/ensureLoggedIn')
 router.get('/verify-token', ensureLoggedIn, adminCtrlr.verifyToken)
 
 // wake server!
-// router.get('/wake', (req, res, next) => {
-//   res.sendStatus(204)
-// })
+router.get('/wake', (req, res, next) => {
+  res.sendStatus(204)
+})
 
 // POST /api/admin
 router.post('/', adminCtrlr.create)
