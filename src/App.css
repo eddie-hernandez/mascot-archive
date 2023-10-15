@@ -27,11 +27,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5vh;
+    margin-top: 20vh;
   }
 
   .loading-message {
-    font-size: 5vh;
+    font-size: 2.5vh;
   }
 }
 
@@ -56,6 +56,17 @@
   .blank {
     flex-grow: 0.25;
   }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+  }
+
+  .loading-message {
+    font-size: 4vh;
+  }
 }
 
 @media screen and (min-width: 1001px) {
@@ -78,5 +89,16 @@
   }
   .blank {
     flex-grow: 0.25;
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+  }
+
+  .loading-message {
+    font-size: 3vh;
   }
 }

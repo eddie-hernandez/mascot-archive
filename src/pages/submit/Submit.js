@@ -106,7 +106,7 @@ export default function Submit() {
   ) : // render loading message when submit button has been clicked
   isSubmitting ? (
     <div className="loading-container">
-      <h2 className='loading-message'>the archive is processing your submission...</h2>
+      <h2 className='loading-message'>(the archive is processing<br /> your submission...)</h2>
     </div>
   ) : (
     <div className="submit-container">
