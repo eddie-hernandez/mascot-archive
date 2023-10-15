@@ -148,7 +148,7 @@ export default function Gallery({
 
   return isLoading ? (
     <div className='loading-container'>
-      <h2>hold up! the archive is loading...</h2>
+      <h2 className='loading-message'>hold up!<br /> the archive is loading...</h2>
     </div>
   ) : (
     <div className="gallery-container">
@@ -159,7 +159,7 @@ export default function Gallery({
           </Link>
         </div>
       ))}
-      <h4>congrats!<br />you've reached the end of the mascots on this page ; )!</h4>
+      {/* <h4>congrats!<br />you've reached the end of the mascots on this page ; )!</h4> */}
     </div>
   )
 }

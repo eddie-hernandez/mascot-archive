@@ -90,13 +90,13 @@ export default function Submit() {
   // disable form options until photo is selected
   const isPhotoSelected = photo !== null
 
-  if (submissionSuccess) {
-    return (
-      <div className="submit-container">
-        <img src={thanksHero} alt="thank you hero" className="thank-you-hero" />
-      </div>
-    )
-  }
+  // if (submissionSuccess) {
+  //   return (
+  //     <div className="submit-container">
+  //       <img src={thanksHero} alt="thank you hero" className="thank-you-hero" />
+  //     </div>
+  //   )
+  // }
 
   return submissionSuccess ? (
     // render success message and clear content upon submission success
@@ -105,8 +105,8 @@ export default function Submit() {
     </div>
   ) : // render loading message when submit button has been clicked
   isSubmitting ? (
-    <div className="submit-container">
-      <h2>the archive is processing your submission...</h2>
+    <div className="loading-container">
+      <h2 className='loading-message'>the archive is processing your submission...</h2>
     </div>
   ) : (
     <div className="submit-container">
