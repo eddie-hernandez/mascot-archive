@@ -15,6 +15,7 @@ export default function Submit() {
   const [photo, setPhoto] = useState(null)
   const [message, setMessage] = useState('')
   const [previewImage, setPreviewImage] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submissionSuccess, setSubmissionSuccess] = useState(false)
 
   // track active URL in case user wants to upload different photo
@@ -23,6 +24,7 @@ export default function Submit() {
   async function handleSubmit(event) {
     event.preventDefault()
 
+    setIsSubmitting(true)
     const formData = new FormData()
     // for each type in 'types'
     selectedTypes.forEach((type) => {
@@ -42,7 +44,10 @@ export default function Submit() {
       if (response.message) {
         setMessage('Thanks! Your submission has been received.')
         setSubmissionSuccess(true)
-        setTimeout(() => navigate('/'), 2000)
+        setTimeout(() => {
+          navigate('/')
+          setIsSubmitting(false)
+        }, 2000)
       } else {
         const errorData = await response.json()
         setMessage(`An error occurred: ${errorData.error}`)
@@ -85,7 +90,6 @@ export default function Submit() {
   // disable form options until photo is selected
   const isPhotoSelected = photo !== null
 
-  // render success message and clear content upon submission success
   if (submissionSuccess) {
     return (
       <div className="submit-container">
@@ -94,7 +98,17 @@ export default function Submit() {
     )
   }
 
-  return (
+  return submissionSuccess ? (
+    // render success message and clear content upon submission success
+    <div className="submit-container">
+      <img src={thanksHero} alt="thank you hero" className="thank-you-hero" />
+    </div>
+  ) : // render loading message when submit button has been clicked
+  isSubmitting ? (
+    <div className="submit-container">
+      <h2>the archive is processing your submission...</h2>
+    </div>
+  ) : (
     <div className="submit-container">
       {previewImage && (
         <img
@@ -200,10 +214,11 @@ export default function Submit() {
               onMouseEnter={() => dispatch(setCursorHover(true))}
               onMouseLeave={() => dispatch(setCursorHover(false))}
             />
-            <h6 className={isPhotoSelected ? 'check-text' : 'disabled-text'}>lil hat</h6>
+            <h6 className={isPhotoSelected ? 'check-text' : 'disabled-text'}>
+              lil hat
+            </h6>
           </label>
         </div>
-
         <div
           className={isPhotoSelected ? 'text-block' : 'text-block disabled'}
           onMouseEnter={() => dispatch(setCursorHover(true))}
@@ -220,7 +235,6 @@ export default function Submit() {
             disabled={!isPhotoSelected}
           />
         </div>
-
         <div
           className={isPhotoSelected ? 'text-block' : 'text-block disabled'}
           onMouseEnter={() => dispatch(setCursorHover(true))}
@@ -247,7 +261,6 @@ export default function Submit() {
         >
           SUBMIT
         </button>
-
         <p>{message}</p>
       </form>
     </div>

@@ -31,6 +31,7 @@ export default function App() {
   const [admin, setAdmin] = useState(getAdmin())
   const [images, setImages] = useState([])
   const [mascot, setMascot] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
   const [cursorColor, setCursorColor] = useState('#C600EB')
   const [logoClicked, setLogoClicked] = useState(false)
   const location = useLocation()
@@ -46,6 +47,7 @@ export default function App() {
 
   useEffect(() => {
     wakeServer()
+    setIsLoading(true)
     if (location.pathname === '/random') {
       // fetch a random mascot and set it in the state
       mascotService
@@ -66,6 +68,7 @@ export default function App() {
       mascotService
         .indexMascotsByType(typeLocation)
         .then((mascots) => {
+          setIsLoading(false)
           shuffleImages(mascots)
           setImages(mascots)
         })
@@ -79,6 +82,7 @@ export default function App() {
     mascotService
       .indexApprovedMascots()
       .then((mascots) => {
+        setIsLoading(false)
         shuffleImages(mascots)
         setImages(mascots)
         window.scrollTo(0, 0)
@@ -122,21 +126,13 @@ export default function App() {
       <div className="mobile-header">
         <Logo handleLogoClick={handleLogoClick} />
       </div>
-      {location.pathname === '/random' ||
-      location.pathname === '/submit' ||
-      location.pathname === '/about' ||
-      location.pathname.includes('/mascot') ||
-      location.pathname.includes('/admin') ? (
-        <div className="mobile-nav">
-          <Navbar
-            setImages={setImages}
-            setMascot={setMascot}
-            shuffleImages={shuffleImages}
-          />
-        </div>
-      ) : (
-        ''
-      )}
+      <div className="mobile-nav">
+        <Navbar
+          setImages={setImages}
+          setMascot={setMascot}
+          shuffleImages={shuffleImages}
+        />
+      </div>
       <div className="desktop-header">
         <div className="blank" />
         <CursorColorPicker handleCursorColor={handleCursorColor} />
@@ -159,6 +155,8 @@ export default function App() {
               setMascot={setMascot}
               logoClicked={logoClicked}
               setLogoClicked={setLogoClicked}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
             />
           }
         />
@@ -176,6 +174,7 @@ export default function App() {
               shuffleImages={shuffleImages}
               logoClicked={logoClicked}
               setLogoClicked={setLogoClicked}
+              isLoading={isLoading}
             />
           }
         />
@@ -188,6 +187,7 @@ export default function App() {
               setImages={setImages}
               shuffleImages={shuffleImages}
               logoClicked={logoClicked}
+              isLoading={isLoading}
               setLogoClicked={setLogoClicked}
             />
           }
@@ -201,6 +201,7 @@ export default function App() {
               setImages={setImages}
               shuffleImages={shuffleImages}
               logoClicked={logoClicked}
+              isLoading={isLoading}
               setLogoClicked={setLogoClicked}
             />
           }

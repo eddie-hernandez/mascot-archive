@@ -9,6 +9,7 @@ export default function Hat({
   shuffleImages,
   logoClicked,
   setLogoClicked,
+  isLoading
 }) {
   return (
     <div className="gallery-wrapper">
@@ -19,6 +20,7 @@ export default function Hat({
         shuffleImages={shuffleImages}
         logoClicked={logoClicked}
         setLogoClicked={setLogoClicked}
+        isLoading={isLoading}
       />
     </div>
   )

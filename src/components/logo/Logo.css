@@ -1,4 +1,6 @@
 .logo-container {
+  position: sticky;
+  z-index: 9999;
   background-color: #f2eee6;
   padding: 2vh 0vh;
   width: 100%;

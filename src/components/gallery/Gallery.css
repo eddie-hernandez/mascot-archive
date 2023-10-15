@@ -1,4 +1,28 @@
-.image-container {
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  padding: 5vh 10vh 10vh 10vh;
+  row-gap: 10vh;
+}
+
+.mascot-photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1000px) and (orientation: portrait) {
+  .gallery-container {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0vh 2vh;
+    row-gap: 1.5vh;
+  }
+}
+
+/* RANDOM GALLERY STYLES! */
+
+/* .image-container {
   position: relative;
   height: 100vh;
   overflow-y: auto;
@@ -25,4 +49,4 @@
   #scrollableDiv {
     height: 70vh;
   }
-}
+} */

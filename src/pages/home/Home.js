@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import './Home.css'
 import * as mascotService from '../../utilities/mascot-service'
 import Gallery from '../../components/gallery/Gallery'
-import Navbar from '../../components/navbar/Navbar'
 
 export default function Home({
   images,
@@ -11,11 +10,14 @@ export default function Home({
   setMascot,
   logoClicked,
   setLogoClicked,
+  isLoading,
+  setIsLoading,
 }) {
   useEffect(() => {
     mascotService
       .indexApprovedMascots()
       .then((mascots) => {
+        setIsLoading(false)
         shuffleImages(mascots)
         setImages(mascots)
       })
@@ -33,6 +35,7 @@ export default function Home({
         shuffleImages={shuffleImages}
         logoClicked={logoClicked}
         setLogoClicked={setLogoClicked}
+        isLoading={isLoading}
       />
     </>
   )

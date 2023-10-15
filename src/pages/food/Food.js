@@ -9,6 +9,7 @@ export default function Food({
   shuffleImages,
   logoClicked,
   setLogoClicked,
+  isLoading
 }) {
   return (
     <div className="gallery-wrapper">
@@ -19,6 +20,7 @@ export default function Food({
         shuffleImages={shuffleImages}
         logoClicked={logoClicked}
         setLogoClicked={setLogoClicked}
+        isLoading={isLoading}
       />
     </div>
   )

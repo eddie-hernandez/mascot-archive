@@ -99,6 +99,10 @@ button:hover {
   p {
     font-size: 3vw;
   }
+
+  .App {
+    padding-bottom: 10vh;
+  }
 }
 
 @media screen and (max-width: 1000px) and (orientation: landscape) {
