@@ -146,24 +146,21 @@ export default function Gallery({
   //     </div>
   //   )
 
-  return (
-    // isLoading ?
+  return isLoading ? (
     <div className="loading-container">
       <h2 className="loading-message">(the archive is loading...)</h2>
     </div>
+  ) : (
+    <div className="gallery-container">
+      {images.map((image, index) => (
+        <div className="mascot-photo-container" key={image._id}>
+          <Link to={`/mascot/${image._id}`}>
+            <Photo image={image} alt={`Mascot ${index}`} />
+          </Link>
+        </div>
+      ))}
+    </div>
   )
-  // ) : (
-  //   <div className="gallery-container">
-  //     {images.map((image, index) => (
-  //       <div className="mascot-photo-container" key={image._id}>
-  //         <Link to={`/mascot/${image._id}`}>
-  //           <Photo image={image} alt={`Mascot ${index}`} />
-  //         </Link>
-  //       </div>
-  //     ))}
-  //     {/* <h4>congrats!<br />you've reached the end of the mascots on this page ; )!</h4> */}
-  //   </div>
-  // )
 }
 
 // TO-DOS: figure out how to generate a random position as a default after max attempts
